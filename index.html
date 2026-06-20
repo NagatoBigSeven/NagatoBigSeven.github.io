@@ -4,624 +4,51 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Academic homepage of Zongmin Zhang (Nagato), an HKUST computer science undergraduate and AI for Science researcher.">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://nagatobigseven.github.io/">
+  <meta property="og:title" content="Zongmin Zhang (Nagato) | Academic Homepage">
+  <meta property="og:description" content="Academic homepage of Zongmin Zhang (Nagato), an HKUST computer science undergraduate and AI for Science/Chemistry researcher.">
+  <meta property="og:image" content="https://nagatobigseven.github.io/assets/profile.jpeg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://nagatobigseven.github.io/">
+  <meta property="twitter:title" content="Zongmin Zhang (Nagato) | Academic Homepage">
+  <meta property="twitter:description" content="Academic homepage of Zongmin Zhang (Nagato), an HKUST computer science undergraduate and AI for Science/Chemistry researcher.">
+  <meta property="twitter:image" content="https://nagatobigseven.github.io/assets/profile.jpeg">
+
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <title>Zongmin Zhang (Nagato) | Academic Homepage</title>
-  <style>
-    :root {
-      --bg: #f5f5f7;
-      --card: rgba(255, 255, 255, 0.95);
-      --text: #1d1d1f;
-      --subtle: #3f4247;
-      --muted: #6b7078;
-      --line: #e5e5ea;
-      --link: #0066cc;
-      --link-soft: #eaf4ff;
-      --chip: #f2f2f4;
-      --chip-text: #52565c;
-      --asset-bg: #f7f9fc;
-      --asset-line: #e2e9f2;
-      --warm: #8a5a2f;
-      --green: #2f6b57;
-      --shadow: 0 18px 50px rgba(0, 0, 0, 0.06);
-      --soft-shadow: 0 8px 26px rgba(0, 0, 0, 0.045);
-      --radius: 24px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", Arial, sans-serif;
-      line-height: 1.58;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(255, 255, 255, 0.95), transparent 34rem),
-        linear-gradient(180deg, #f7f8fa 0%, var(--bg) 42%, #f1f3f5 100%);
-      -webkit-font-smoothing: antialiased;
-    }
-
-    .container {
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 34px 20px 42px;
-    }
-
-    .top-nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 18px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .nav-name {
-      font-weight: 650;
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.12s ease;
-    }
-
-    .nav-links a:hover,
-    .nav-links a:focus-visible {
-      color: var(--link);
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid rgba(255, 255, 255, 0.74);
-      border-radius: var(--radius);
-      padding: 34px 36px;
-      margin-bottom: 20px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(18px);
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 42px;
-      align-items: center;
-    }
-
-    .profile-photo-wrap {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      justify-self: end;
-      width: fit-content;
-      border-radius: 20px;
-      overflow: hidden;
-      background: #fff;
-      border: 1px solid var(--line);
-      box-shadow: 0 12px 34px rgba(0, 0, 0, 0.08);
-    }
-
-    .profile-photo {
-      width: 172px;
-      height: 218px;
-      object-fit: cover;
-      object-position: center top;
-      display: block;
-    }
-
-    h1 {
-      margin: 0 0 8px;
-      font-size: 42px;
-      line-height: 1.12;
-      letter-spacing: -0.02em;
-      font-weight: 760;
-    }
-
-    h2 {
-      margin: 0 0 20px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--line);
-      font-size: 25px;
-      line-height: 1.25;
-      letter-spacing: -0.015em;
-      font-weight: 720;
-    }
-
-    h3 {
-      margin: 0 0 8px;
-      font-size: 18px;
-      line-height: 1.35;
-      font-weight: 700;
-    }
-
-    p {
-      margin: 6px 0;
-    }
-
-    a {
-      color: var(--link);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    a:focus-visible,
-    summary:focus-visible {
-      outline: 3px solid rgba(0, 102, 204, 0.25);
-      outline-offset: 3px;
-    }
-
-    .identity {
-      font-size: 17px;
-      color: var(--subtle);
-      margin-bottom: 10px;
-    }
-
-    .about-line {
-      max-width: 760px;
-      margin-top: 12px;
-      color: var(--text);
-      font-size: 16px;
-      line-height: 1.62;
-    }
-
-    .focus-list {
-      margin: 14px 0 0;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      list-style: none;
-    }
-
-    .focus-list li {
-      border-radius: 999px;
-      border: 1px solid #e1e7f0;
-      background: #fbfcff;
-      color: #354253;
-      padding: 4px 11px;
-      font-size: 13.5px;
-      line-height: 1.5;
-    }
-
-    .links {
-      margin-top: 18px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .pill-link,
-    .mini-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 999px;
-      text-decoration: none;
-      transition: all 0.16s ease;
-      white-space: nowrap;
-    }
-
-    .pill-link {
-      padding: 5px 13px;
-      border: 1px solid #d7e6fb;
-      background: rgba(247, 250, 255, 0.9);
-      color: var(--link);
-      font-size: 14.5px;
-      line-height: 1.5;
-    }
-
-    .pill-link:hover,
-    .mini-link:hover,
-    .pill-link:focus-visible,
-    .mini-link:focus-visible {
-      text-decoration: none;
-      background: #edf5ff;
-      border-color: #bfd8f7;
-      transform: translateY(-1px);
-    }
-
-    .mini-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-top: 8px;
-    }
-
-    .mini-link {
-      padding: 4px 10px;
-      border: 1px solid #e1e7f0;
-      background: #fbfcff;
-      color: var(--link);
-      font-size: 13.5px;
-      line-height: 1.45;
-    }
-
-    .item-title {
-      font-weight: 680;
-      font-size: 17px;
-      line-height: 1.42;
-    }
-
-    .muted {
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.48;
-    }
-
-    .authors {
-      margin-top: 4px;
-      color: var(--muted);
-      font-size: 14.5px;
-      line-height: 1.45;
-    }
-
-    .me {
-      color: var(--text);
-      font-weight: 720;
-    }
-
-    .highlight {
-      margin: 6px 0 5px;
-      color: #343840;
-      font-size: 14.8px;
-      line-height: 1.5;
-    }
-
-    .highlight-label {
-      color: var(--text);
-      font-weight: 680;
-    }
-
-    .tag {
-      display: inline-block;
-      margin: 7px 7px 0 0;
-      padding: 3px 10px;
-      border-radius: 999px;
-      background: var(--chip);
-      color: var(--chip-text);
-      font-size: 13px;
-      line-height: 1.5;
-    }
-
-    .publication-card {
-      display: grid;
-      grid-template-columns: 250px 1fr;
-      gap: 22px;
-      align-items: center;
-      padding: 12px 0;
-      border-bottom: 1px solid #f0f0f2;
-    }
-
-    .publication-card:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-
-    .publication-cover-wrap {
-      width: 250px;
-      height: 150px;
-      border-radius: 18px;
-      background: var(--asset-bg);
-      border: 1px solid var(--asset-line);
-      box-shadow: var(--soft-shadow);
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      align-self: center;
-    }
-
-    .publication-cover {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center;
-      display: block;
-      background: transparent;
-    }
-
-    .publication-cover.logo-cover {
-      padding: 22px;
-      background: var(--asset-bg);
-    }
-
-    .publication-cover.image-cover {
-      object-fit: cover;
-    }
-
-    .publication-cover-text {
-      width: 100%;
-      height: 100%;
-      display: grid;
-      place-items: center;
-      background: var(--asset-bg);
-      color: #1d3557;
-      font-size: 34px;
-      font-weight: 760;
-      letter-spacing: 0;
-    }
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-
-    .project-card,
-    .note-card,
-    .info-panel {
-      background: rgba(255, 255, 255, 0.72);
-      border: 1px solid #eceef2;
-      border-radius: 18px;
-      padding: 18px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.032);
-    }
-
-    .project-card {
-      min-height: 190px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .project-title {
-      font-size: 17px;
-      font-weight: 720;
-      margin-bottom: 6px;
-    }
-
-    .project-desc {
-      color: var(--muted);
-      font-size: 14.5px;
-      line-height: 1.55;
-    }
-
-    .experience-awards-grid {
-      display: grid;
-      grid-template-columns: 1.35fr 1fr;
-      gap: 14px;
-    }
-
-    .timeline {
-      position: relative;
-      display: grid;
-      gap: 16px;
-      margin-top: 8px;
-    }
-
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 58px 1fr;
-      gap: 13px;
-      align-items: start;
-    }
-
-    .school-logo {
-      width: 52px;
-      height: 38px;
-      border-radius: 10px;
-      object-fit: contain;
-      background: var(--asset-bg);
-      border: 1px solid var(--asset-line);
-      padding: 5px;
-      display: block;
-    }
-
-    .school-logo.logo-hkust {
-      padding: 4px 8px;
-    }
-
-    .school-logo.logo-epfl {
-      padding: 6px;
-    }
-
-    .school-logo.logo-sjtu {
-      padding: 6px;
-    }
-
-    .timeline-time {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.45;
-      margin-bottom: 2px;
-    }
-
-    .timeline-title {
-      font-size: 15.5px;
-      line-height: 1.5;
-      color: var(--text);
-      font-weight: 620;
-    }
-
-    .award-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-      margin-top: 12px;
-    }
-
-    .award-chip {
-      display: inline-flex;
-      align-items: center;
-      padding: 6px 11px;
-      border-radius: 999px;
-      background: #f7f7f9;
-      border: 1px solid #eceef2;
-      color: #343840;
-      font-size: 14px;
-      line-height: 1.45;
-    }
-
-    details {
-      margin-top: 8px;
-    }
-
-    summary {
-      cursor: pointer;
-      color: var(--muted);
-      font-size: 14.5px;
-      user-select: none;
-      transition: color 0.12s ease;
-    }
-
-    summary:hover {
-      color: var(--link);
-    }
-
-    details[open] summary {
-      margin-bottom: 10px;
-      color: var(--link);
-    }
-
-    .note-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }
-
-    .note-card {
-      min-height: 214px;
-    }
-
-    .section-note {
-      color: var(--muted);
-      font-size: 14.5px;
-      margin: 0 0 9px;
-    }
-
-    .post-list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .post-list li {
-      position: relative;
-      margin-bottom: 7px;
-      padding-left: 15px;
-      font-size: 15px;
-      line-height: 1.5;
-    }
-
-    .post-list li::before {
-      content: "";
-      position: absolute;
-      left: 1px;
-      top: 0.72em;
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: #aeb4bd;
-    }
-
-    .footer {
-      text-align: center;
-      color: #8a8f98;
-      font-size: 13.5px;
-      padding: 8px 0 24px;
-    }
-
-    @media (max-width: 900px) {
-      .project-grid,
-      .note-grid,
-      .experience-awards-grid {
-        grid-template-columns: 1fr;
+  <link rel="stylesheet" href="index.css">
+  <script>
+    // Inline script to prevent screen flash by reading stored theme preference before initial paint
+    (function () {
+      var storedTheme = localStorage.getItem('theme');
+      var userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (storedTheme === 'dark' || (!storedTheme && userPrefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
       }
-
-      .note-card,
-      .project-card {
-        min-height: auto;
-      }
-    }
-
-    @media (max-width: 820px) {
-      .container {
-        padding: 24px 14px 36px;
-      }
-
-      .top-nav {
-        display: none;
-      }
-
-      .card {
-        padding: 26px 24px;
-        border-radius: 20px;
-      }
-
-      .hero {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
-
-      .profile-photo-wrap {
-        justify-self: center;
-        width: fit-content;
-      }
-
-      .profile-photo {
-        width: 158px;
-        height: 200px;
-      }
-
-      .publication-card {
-        grid-template-columns: 1fr;
-        gap: 14px;
-        align-items: start;
-      }
-
-      .publication-cover-wrap {
-        width: 100%;
-        height: 210px;
-      }
-    }
-
-    @media (max-width: 560px) {
-      h1 {
-        font-size: 34px;
-      }
-
-      h2 {
-        font-size: 23px;
-      }
-
-      .identity,
-      .about-line {
-        font-size: 15.5px;
-      }
-
-      .links {
-        gap: 8px;
-      }
-
-      .pill-link {
-        font-size: 14px;
-        padding: 5px 11px;
-      }
-
-      .publication-cover-wrap {
-        height: 190px;
-      }
-    }
-  </style>
+    })();
+  </script>
 </head>
 
 <body>
+  <!-- Reading Progress Bar -->
+  <div id="scroll-indicator"></div>
+
+  <!-- Background Molecular Network Canvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Theme Toggle Button -->
+  <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark mode" title="Toggle dark mode">
+    <svg class="sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
+    <svg class="moon-icon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
+  </button>
+
   <main class="container">
     <nav class="top-nav" aria-label="Primary navigation">
       <a class="nav-name" id="Header1_HeaderTitle" href="./">Zongmin Zhang (Nagato)</a>
@@ -656,13 +83,34 @@
         </ul>
 
         <div class="links">
-          <a class="pill-link" href="mailto:zzhanghw@connect.ust.hk">Email</a>
-          <a class="pill-link" href="https://github.com/NagatoBigSeven" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a class="pill-link" href="https://scholar.google.com/citations?user=2yrrFZkAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
-          <a class="pill-link" href="https://orcid.org/0009-0003-7179-3175" target="_blank" rel="noopener noreferrer">ORCID</a>
-          <a class="pill-link" href="https://openreview.net/profile?id=%7EZongmin_Zhang2" target="_blank" rel="noopener noreferrer">OpenReview</a>
-          <a class="pill-link" href="https://www.linkedin.com/in/zongmin-zhang" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a class="pill-link" href="https://x.com/zongmin_zhang" target="_blank" rel="noopener noreferrer">X</a>
+          <a class="pill-link" href="mailto:zzhanghw@connect.ust.hk">
+            <svg viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            Email
+          </a>
+          <a class="pill-link" href="https://github.com/NagatoBigSeven" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" style="margin-right: 6px;"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.11.82-.26.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.22.694.825.576C20.566 21.797 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <a class="pill-link" href="https://scholar.google.com/citations?user=2yrrFZkAAAAJ" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" style="margin-right: 6px;"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9l12 9 9.36-7.02V18h2.64V9.9L24 9 12 0z"/></svg>
+            Google Scholar
+          </a>
+          <a class="pill-link" href="https://orcid.org/0009-0003-7179-3175" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" style="margin-right: 6px; color: #a6c307;"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.541 0 .955.438.955.979s-.414.979-.955.979H6.071v12.283H4.254V5.378H7.37zM18.847 12c0 2.886-1.556 4.329-3.879 4.329h-3.342V5.378h3.407c2.308 0 3.814 1.419 3.814 4.303V12zm-5.405-4.887h-1.002v8.429h1.002c1.419 0 2.247-.941 2.247-2.923V10.05c0-2-.801-2.937-2.247-2.937z"/></svg>
+            ORCID
+          </a>
+          <a class="pill-link" href="https://openreview.net/profile?id=%7EZongmin_Zhang2" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            OpenReview
+          </a>
+          <a class="pill-link" href="https://www.linkedin.com/in/zongmin-zhang" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" style="margin-right: 6px;"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            LinkedIn
+          </a>
+          <a class="pill-link" href="https://x.com/zongmin_zhang" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" style="margin-right: 6px;"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            X
+          </a>
         </div>
       </div>
 
@@ -931,8 +379,23 @@
     </div>
   </div>
   <script type="text/javascript">
+    // 1. Theme Toggle Logic
+    var themeToggleBtn = document.getElementById('theme-toggle');
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener('click', function() {
+        var currentTheme = document.documentElement.getAttribute('data-theme');
+        var newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        
+        // Notify any active components (like mascot, if listening)
+        window.dispatchEvent(new CustomEvent('themechanged', { detail: { theme: newTheme } }));
+      });
+    }
+
+    // 2. Kanban Mascot Loading
     if (window.innerWidth > 768) {
-      // 1. 动态加载 CSS 样式表，避免阻塞首屏渲染
+      // 动态加载 CSS 样式表，避免阻塞首屏渲染
       var waifuCss = document.createElement('link');
       waifuCss.rel = 'stylesheet';
       waifuCss.type = 'text/css';
@@ -940,7 +403,7 @@
       waifuCss.href = 'assets/kanban/waifu.css' + suffix;
       document.head.appendChild(waifuCss);
 
-      // 2. 动态加载脚本的辅助函数
+      // 动态加载脚本的辅助函数
       function loadScript(src, callback) {
         var script = document.createElement('script');
         script.type = 'text/javascript';
@@ -949,7 +412,7 @@
         document.body.appendChild(script);
       }
 
-      // 3. 按正确依赖顺序加载：jQuery -> live2d -> waifu-tips
+      // 按正确依赖顺序加载：jQuery -> live2d -> waifu-tips
       loadScript('assets/kanban/jquery-3.2.1.min.js', function() {
         loadScript('assets/kanban/live2d.min.js', function() {
           loadScript('assets/kanban/waifu-tips.js', function() {
@@ -962,6 +425,123 @@
       var waifuEl = document.getElementById('waifu');
       if (waifuEl) waifuEl.style.display = 'none';
     }
+
+    // 3. Dynamic Molecular Particle Network Background
+    (function() {
+      var canvas = document.getElementById('bg-canvas');
+      if (!canvas) return;
+      var ctx = canvas.getContext('2d');
+      var width = canvas.width = window.innerWidth;
+      var height = canvas.height = window.innerHeight;
+
+      var particles = [];
+      var maxParticles = Math.min(50, Math.floor((width * height) / 30000));
+      var connectionDistance = 110;
+      
+      var mouse = { x: null, y: null };
+      
+      function Particle() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.vx = (Math.random() - 0.5) * 0.35;
+        this.vy = (Math.random() - 0.5) * 0.35;
+        this.radius = Math.random() * 2 + 1.2;
+      }
+      Particle.prototype.update = function() {
+        this.x += this.vx;
+        this.y += this.vy;
+        
+        if (this.x < 0 || this.x > width) this.vx *= -1;
+        if (this.y < 0 || this.y > height) this.vy *= -1;
+      };
+      Particle.prototype.draw = function() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fill();
+      };
+
+      function init() {
+        particles = [];
+        for (var i = 0; i < maxParticles; i++) {
+          particles.push(new Particle());
+        }
+      }
+
+      function getColors() {
+        var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        return {
+          particle: isDark ? 'rgba(56, 189, 248, 0.3)' : 'rgba(0, 102, 204, 0.18)',
+          line: isDark ? 'rgba(56, 189, 248, 0.08)' : 'rgba(0, 102, 204, 0.06)'
+        };
+      }
+
+      var colors = getColors();
+      window.addEventListener('themechanged', function() {
+        colors = getColors();
+      });
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+        
+        ctx.fillStyle = colors.particle;
+        ctx.strokeStyle = colors.line;
+        
+        for (var i = 0; i < particles.length; i++) {
+          particles[i].update();
+          particles[i].draw();
+          
+          for (var j = i + 1; j < particles.length; j++) {
+            var dx = particles[i].x - particles[j].x;
+            var dy = particles[i].y - particles[j].y;
+            var dist = Math.sqrt(dx * dx + dy * dy);
+            
+            if (dist < connectionDistance) {
+              ctx.beginPath();
+              ctx.lineWidth = (1 - dist / connectionDistance) * 1.0;
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.stroke();
+            }
+          }
+          
+          // Connect to mouse
+          if (mouse.x !== null && mouse.y !== null) {
+            var dx2 = particles[i].x - mouse.x;
+            var dy2 = particles[i].y - mouse.y;
+            var dist2 = Math.sqrt(dx2 * dx2 + dy2 * dy2);
+            if (dist2 < connectionDistance * 1.3) {
+              ctx.beginPath();
+              ctx.lineWidth = (1 - dist2 / (connectionDistance * 1.3)) * 0.7;
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(mouse.x, mouse.y);
+              ctx.stroke();
+            }
+          }
+        }
+        
+        requestAnimationFrame(animate);
+      }
+
+      window.addEventListener('resize', function() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+        maxParticles = Math.min(50, Math.floor((width * height) / 30000));
+        init();
+      });
+
+      window.addEventListener('mousemove', function(e) {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+      });
+
+      window.addEventListener('mouseleave', function() {
+        mouse.x = null;
+        mouse.y = null;
+      });
+
+      init();
+      animate();
+    })();
   </script>
 </body>
 </html>
