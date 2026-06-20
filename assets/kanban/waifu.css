@@ -26,12 +26,14 @@
 	width:250px;
 	min-height:50px;
 	margin:-20px 20px;
-	padding:5px 10px;
-	border:1px solid rgba(224,186,140,.62);
-	border-radius:12px;
-	background-color:rgba(236,217,188,.5);
-	box-shadow:0 3px 15px 2px rgba(191,158,118,.2);
-	font-size:12px;
+	padding:8px 12px;
+	border:1px solid var(--card-border);
+	border-radius:14px;
+	background-color:var(--card);
+	backdrop-filter:blur(10px);
+	-webkit-backdrop-filter:blur(10px);
+	box-shadow:var(--shadow);
+	font-size:12.5px;
 	text-overflow:ellipsis;
 	overflow:hidden;
 	position:absolute;
@@ -40,11 +42,12 @@
 	animation-iteration-count:infinite;
 	animation-name:shake;
 	animation-timing-function:ease-in-out;
-	color:#FF66CC;
+	color:var(--link);
+	line-height:1.45;
 }
 .waifu-tool {
 	display:none;
-	color:#aaa;
+	color:var(--muted);
 	top:50px;
 	right:10px;
 	font-size:14px;
@@ -56,12 +59,12 @@
 .waifu-tool span {
 	display:block;
 	cursor:pointer;
-	color:#5b6c7d;
-	line-height:20px;
+	color:var(--muted);
+	line-height:24px;
 	transition:.2s
 }
 .waifu-tool span:hover {
-	color:#34495e
+	color:var(--text)
 }
 .waifu #live2d {
 	position:relative

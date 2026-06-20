@@ -35,7 +35,7 @@ $(document).on("visibilitychange", function() {
 	});
 
 /*$('#hitokoto').mouseover(function (){
-    var text = '这句一言出处是 <span style="color:#0099cc;">『{source}』</span>，是 <span style="color:#0099cc;">FGHRSH</span> 在 {date} 收藏的！';
+    var text = '这句一言出处是 <span style="color:var(--link);">『{source}』</span>，是 <span style="color:var(--link);">FGHRSH</span> 在 {date} 收藏的！';
     var hitokoto = JSON.parse($(this)[0].dataset.raw);
     text = text.render({source: hitokoto.source, author: hitokoto.author, date: hitokoto.date});
     showMessage(text, 3000);
@@ -140,18 +140,18 @@ function waifuWelcome(){
             referrer.href = document.referrer;
             var domain = referrer.hostname.split('.')[1];
             if (window.location.hostname == referrer.hostname) {
-                text = '欢迎阅读<span style="color:#0099cc;">『' + document.title.split(/\s*[-|]\s*/)[0] + '』</span>';
+                text = '欢迎阅读<span style="color:var(--link);">『' + document.title.split(/\s*[-|]\s*/)[0] + '』</span>';
             } else if (domain == 'baidu') {
-                text = 'Hello! 来自 百度搜索 的朋友<br>你是搜索 <span style="color:#0099cc;">' + (referrer.search.split('&wd=')[1] ? referrer.search.split('&wd=')[1].split('&')[0] : '') + '</span> 找到的我吗？';
+                text = 'Hello! 来自 百度搜索 的朋友<br>你是搜索 <span style="color:var(--link);">' + (referrer.search.split('&wd=')[1] ? referrer.search.split('&wd=')[1].split('&')[0] : '') + '</span> 找到的我吗？';
             } else if (domain == 'so') {
-                text = 'Hello! 来自 360搜索 的朋友<br>你是搜索 <span style="color:#0099cc;">' + (referrer.search.split('&q=')[1] ? referrer.search.split('&q=')[1].split('&')[0] : '') + '</span> 找到的我吗？';
+                text = 'Hello! 来自 360搜索 的朋友<br>你是搜索 <span style="color:var(--link);">' + (referrer.search.split('&q=')[1] ? referrer.search.split('&q=')[1].split('&')[0] : '') + '</span> 找到的我吗？';
             } else if (domain == 'google') {
-                text = 'Hello! 来自 谷歌搜索 的朋友<br>欢迎阅读<span style="color:#0099cc;">『' + document.title.split(/\s*[-|]\s*/)[0] + '』</span>';
+                text = 'Hello! 来自 谷歌搜索 的朋友<br>欢迎阅读<span style="color:var(--link);">『' + document.title.split(/\s*[-|]\s*/)[0] + '』</span>';
             } else {
-                text = 'Hello! 来自 <span style="color:#0099cc;">' + referrer.hostname + '</span> 的朋友';
+                text = 'Hello! 来自 <span style="color:var(--link);">' + referrer.hostname + '</span> 的朋友';
             }
         } else {
-            text = '欢迎阅读<span style="color:#0099cc;">『' + document.title.split(/\s*[-|]\s*/)[0] + '』</span>';
+            text = '欢迎阅读<span style="color:var(--link);">『' + document.title.split(/\s*[-|]\s*/)[0] + '』</span>';
         }
     }
     showMessage(text, 6000);
@@ -182,7 +182,7 @@ function showHitokoto(){
     
     window.clearTimeout(t);
     $.getJSON('https://v1.hitokoto.cn',function(result){
-        var text = '这句一言出自 <span style="color:#0099cc;">『{source}』</span>';  //，是 <span style="color:#0099cc;">{creator}</span> 在 hitokoto.cn 投稿的。';
+        var text = '这句一言出自 <span style="color:var(--link);">『{source}』</span>';  //，是 <span style="color:var(--link);">{creator}</span> 在 hitokoto.cn 投稿的。';
         text = text.render({source: result.from});  //, creator: result.creator
         showMessage(result.hitokoto, 5000);
         t = window.setTimeout(function() {showMessage(text, 3000);}, 5000);
@@ -215,7 +215,7 @@ var waifuJson = {
     "mouseover": [
         {
             "selector": ".content-wrap a[href^='http']",
-            "text": ["要看看 <span style=\"color:#0099cc;\">{text}</span> 么？"]
+            "text": ["要看看 <span style=\"color:var(--link);\">{text}</span> 么？"]
         },
         {
             "selector": ".logo",
@@ -291,7 +291,7 @@ var waifuJson = {
         },
         {
             "selector": "#htmer_time",
-            "text": ["已经过了这么久了呀，日子过得好快呢", "<span style=\"color:#0099cc;\">2010</span> 是多久来着…<br>1，2，3……有好多好多天呢！"]
+            "text": ["已经过了这么久了呀，日子过得好快呢", "<span style=\"color:var(--link);\">2010</span> 是多久来着…<br>1，2，3……有好多好多天呢！"]
         },
         {
             "selector": ".updatelog",
@@ -311,15 +311,15 @@ var waifuJson = {
         },
         {
             "selector": "#wenkmPlayer div.volume",
-            "text": ["在这里可以调整<span style=\"color:#0099cc;\">音量</span>呢"]
+            "text": ["在这里可以调整<span style=\"color:var(--link);\">音量</span>呢"]
         },
         {
             "selector": "#wenkmPlayer div.switch-playlist",
-            "text": ["<span style=\"color:#0099cc;\">播放列表</span>里都有什么呢"]
+            "text": ["<span style=\"color:var(--link);\">播放列表</span>里都有什么呢"]
         },
         {
             "selector": "#wenkmPlayer div.switch-ksclrc",
-            "text": ["有<span style=\"color:#0099cc;\">歌词</span>的话就能跟着一起唱呢"]
+            "text": ["有<span style=\"color:var(--link);\">歌词</span>的话就能跟着一起唱呢"]
         },
         {
             "selector": "#navbar-page-116",
@@ -379,19 +379,19 @@ var waifuJson = {
     "seasons": [
         {
             "date": "01/01",
-            "text": "<span style=\"color:#0099cc;\">元旦</span>了呢，新的一年又开始了，今年是{year}年~"
+            "text": "<span style=\"color:var(--link);\">元旦</span>了呢，新的一年又开始了，今年是{year}年~"
         },
         {
             "date": "02/14",
-            "text": "又是一年<span style=\"color:#0099cc;\">情人节</span>，{year}年找到对象了嘛~"
+            "text": "又是一年<span style=\"color:var(--link);\">情人节</span>，{year}年找到对象了嘛~"
         },
         {
             "date": "03/08",
-            "text": "今天是<span style=\"color:#0099cc;\">妇女节</span>！"
+            "text": "今天是<span style=\"color:var(--link);\">妇女节</span>！"
         },
         {
             "date": "03/12",
-            "text": "今天是<span style=\"color:#0099cc;\">植树节</span>，要保护环境呀！"
+            "text": "今天是<span style=\"color:var(--link);\">植树节</span>，要保护环境呀！"
         },
         {
             "date": "04/01",
@@ -399,31 +399,31 @@ var waifuJson = {
         },
         {
             "date": "05/01",
-            "text": "今天是<span style=\"color:#0099cc;\">五一劳动节</span>，计划好假期去哪里了吗~"
+            "text": "今天是<span style=\"color:var(--link);\">五一劳动节</span>，计划好假期去哪里了吗~"
         },
         {
             "date": "06/01",
-            "text": "<span style=\"color:#0099cc;\">儿童节</span>了呢，快活的时光总是短暂，要是永远长不大该多好啊…"
+            "text": "<span style=\"color:var(--link);\">儿童节</span>了呢，快活的时光总是短暂，要是永远长不大该多好啊…"
         },
         {
             "date": "09/03",
-            "text": "<span style=\"color:#0099cc;\">中国人民抗日战争胜利纪念日</span>，铭记历史、缅怀先烈、珍爱和平、开创未来。"
+            "text": "<span style=\"color:var(--link);\">中国人民抗日战争胜利纪念日</span>，铭记历史、缅怀先烈、珍爱和平、开创未来。"
         },
         {
             "date": "09/10",
-            "text": "<span style=\"color:#0099cc;\">教师节</span>，在学校要给老师问声好呀~"
+            "text": "<span style=\"color:var(--link);\">教师节</span>，在学校要给老师问声好呀~"
         },
         {
             "date": "10/01",
-            "text": "<span style=\"color:#0099cc;\">国庆节</span>，新中国已经成立69年了呢"
+            "text": "<span style=\"color:var(--link);\">国庆节</span>，新中国已经成立69年了呢"
         },
         {
             "date": "11/05-11/12",
-            "text": "今年的<span style=\"color:#0099cc;\">双十一</span>是和谁一起过的呢~"
+            "text": "今年的<span style=\"color:var(--link);\">双十一</span>是和谁一起过的呢~"
         },
         {
             "date": "12/20-12/31",
-            "text": "这几天是<span style=\"color:#0099cc;\">圣诞节</span>，主人肯定又去剁手买买买了~"
+            "text": "这几天是<span style=\"color:var(--link);\">圣诞节</span>，主人肯定又去剁手买买买了~"
         }
     ]
 };
