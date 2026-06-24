@@ -1,27 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Academic homepage of Zongmin Zhang (Nagato), an HKUST computer science undergraduate and AI for Science researcher.">
-  
+  <meta name="description"
+    content="Academic homepage of Zongmin Zhang, an HKUST computer science undergraduate and AI for Science researcher.">
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Zongmin Zhang">
+  <meta property="og:locale" content="en_US">
   <meta property="og:url" content="https://nagatobigseven.github.io/">
-  <meta property="og:title" content="Zongmin Zhang (Nagato) | Academic Homepage">
-  <meta property="og:description" content="Academic homepage of Zongmin Zhang (Nagato), an HKUST computer science undergraduate and AI for Science/Chemistry researcher.">
-  <meta property="og:image" content="https://nagatobigseven.github.io/assets/profile.jpeg">
+  <meta property="og:title" content="Zongmin Zhang | Academic Homepage">
+  <meta property="og:description"
+    content="Academic homepage of Zongmin Zhang, an HKUST computer science undergraduate and AI for Science/Chemistry researcher.">
+  <meta property="og:image" content="https://nagatobigseven.github.io/assets/og-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Zongmin Zhang — HKUST Computer Science Undergraduate, AI for Science Researcher">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://nagatobigseven.github.io/">
-  <meta property="twitter:title" content="Zongmin Zhang (Nagato) | Academic Homepage">
-  <meta property="twitter:description" content="Academic homepage of Zongmin Zhang (Nagato), an HKUST computer science undergraduate and AI for Science/Chemistry researcher.">
-  <meta property="twitter:image" content="https://nagatobigseven.github.io/assets/profile.jpeg">
+  <meta property="twitter:title" content="Zongmin Zhang | Academic Homepage">
+  <meta property="twitter:description"
+    content="Academic homepage of Zongmin Zhang, an HKUST computer science undergraduate and AI for Science/Chemistry researcher.">
+  <meta property="twitter:image" content="https://nagatobigseven.github.io/assets/og-card.png">
 
+  <link rel="canonical" href="https://nagatobigseven.github.io/">
   <link rel="icon" type="image/png" href="assets/favicon.png">
-  <title>Zongmin Zhang (Nagato) | Academic Homepage</title>
-  <link rel="stylesheet" href="index.css">
+  <link rel="alternate" type="application/rss+xml" title="Zongmin Zhang — RSS Feed" href="feed.xml">
+  <title>Zongmin Zhang | Academic Homepage</title>
+
+  <!-- Fonts: preconnect + a direct <link> (faster than @import in the CSS) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;650;720;760;800&display=swap">
+
+  <link rel="preload" fetchpriority="high" as="image" href="assets/profile.webp" type="image/webp">
+  <link rel="stylesheet" href="index.css?v=20260625-2">
   <script>
     // Inline script to prevent screen flash by reading stored theme preference before initial paint
     (function () {
@@ -33,515 +52,473 @@
         document.documentElement.setAttribute('data-theme', 'light');
       }
     })();
+
+    // When WebGL is unavailable (hardware acceleration disabled / blocklisted
+    // GPU), backdrop-filter falls back to slow software compositing and is the
+    // dominant cause of page jank. Drop the frosted-glass blur for these users
+    // only — GPU users keep the full effect. Runs before first paint.
+    (function () {
+      var ok = false;
+      try {
+        var tc = document.createElement('canvas');
+        ok = !!(window.WebGLRenderingContext && (tc.getContext('webgl') || tc.getContext('experimental-webgl')));
+      } catch (e) { ok = false; }
+      window.__waifuWebGLOK = ok; // reused by waifu-tips so it never makes a 2nd context
+      // If WebGL previously crashed the GPU here, also drop the glass (it is the
+      // heaviest GPU consumer) while still keeping the dynamic mascot.
+      var hadTrouble = false;
+      try { hadTrouble = localStorage.getItem('waifu-gpu-trouble') === '1'; } catch (e2) {}
+      if (!ok || hadTrouble) document.documentElement.classList.add('no-gpu-glass');
+    })();
+
+    // Visual-effects / performance mode. 'lite' drops the particle background,
+    // cursor trail, floating keywords, and frosted-glass blur (layout, content,
+    // theme, and the Live2D mascot stay). Default: lite if the visitor prefers
+    // reduced motion, otherwise full. Persisted; window.__effectsLite is the
+    // single source of truth read by the decorative effects below.
+    (function () {
+      var pref = null;
+      try { pref = localStorage.getItem('effects-mode'); } catch (e) {}
+      var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var lite = pref ? (pref === 'lite') : reduceMotion;
+      window.__effectsLite = lite;
+      if (lite) document.documentElement.classList.add('effects-lite');
+    })();
+  </script>
+
+  <!-- Structured data: helps search engines link this page to the author's
+       scholarly identity (Google knowledge panel, Scholar, etc.). -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Zongmin Zhang",
+    "url": "https://nagatobigseven.github.io/",
+    "image": "https://nagatobigseven.github.io/assets/profile.webp",
+    "jobTitle": "Computer Science Undergraduate, AI for Science Researcher",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "The Hong Kong University of Science and Technology"
+    },
+    "sameAs": [
+      "https://scholar.google.com/citations?user=2yrrFZkAAAAJ",
+      "https://orcid.org/0009-0003-7179-3175",
+      "https://github.com/NagatoBigSeven",
+      "https://openreview.net/profile?id=%7EZongmin_Zhang2",
+      "https://www.linkedin.com/in/zongmin-zhang",
+      "https://x.com/zongmin_zhang"
+    ]
+  }
   </script>
 </head>
 
-<body>
+<body class="nagato-cursor">
+  <a class="skip-link" href="#main-content" data-i18n="a11y.skip">Skip to main content</a>
   <!-- Reading Progress Bar -->
   <div id="scroll-indicator"></div>
 
   <!-- Background Molecular Network Canvas -->
-  <canvas id="bg-canvas"></canvas>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <div class="research-float-layer" id="research-float-layer" aria-hidden="true"></div>
+  <canvas class="nagato-trail" id="nagato-trail" aria-hidden="true"></canvas>
 
   <!-- Theme Toggle Button -->
-  <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark mode" title="Toggle dark mode">
-    <svg class="sun-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
-    <svg class="moon-icon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
+  <button id="theme-toggle" class="theme-toggle-btn" aria-label="Switch to dark mode" title="Switch to dark mode">
+    <svg class="sun-icon" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="4"></circle>
+      <path
+        d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41">
+      </path>
+    </svg>
+    <svg class="moon-icon" viewBox="0 0 24 24">
+      <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+    </svg>
   </button>
 
-  <main class="container">
-    <nav class="top-nav" aria-label="Primary navigation">
-      <a class="nav-name" id="Header1_HeaderTitle" href="./">Zongmin Zhang (Nagato)</a>
+  <!-- Language Toggle Button -->
+  <button id="lang-toggle" class="lang-toggle-btn" aria-label="Switch to Chinese" title="Switch to Chinese">
+    <span class="lang-label">中</span>
+  </button>
+
+  <!-- Terminal Toggle Button -->
+  <button id="terminal-toggle" class="terminal-toggle-btn" aria-label="Open console terminal" aria-expanded="false" title="Open console terminal">
+    <span style="font-family: monospace; font-weight: bold; font-size: 15px;">&gt;_</span>
+  </button>
+
+  <!-- Visual Effects / Performance Toggle (full vs lite) -->
+  <button id="effects-toggle" class="effects-toggle-btn" aria-label="Enable performance mode" title="Enable performance mode">
+    <svg class="effects-lite-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 14a8 8 0 0 1 16 0"></path>
+      <path d="M12 14l4-4"></path>
+      <path d="M8 18h8"></path>
+    </svg>
+    <svg class="effects-full-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3l1.8 4.6L18.5 9l-4.7 1.4L12 15l-1.8-4.6L5.5 9l4.7-1.4z"></path>
+      <path d="M18.5 14l.9 2.3 2.3.9-2.3.9-.9 2.3-.9-2.3-2.3-.9 2.3-.9z"></path>
+    </svg>
+  </button>
+
+  <main class="container" id="main-content">
+    <nav class="top-nav" id="top-nav" aria-label="Primary navigation">
+      <a class="nav-name" id="Header1_HeaderTitle" href="./" data-i18n="nav.name">Zongmin Zhang</a>
       <div class="nav-links">
-        <a href="#publications">Pubs</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#honors">Honors</a>
-        <a href="#service">Service</a>
+        <a href="#news" data-i18n="nav.news">News</a>
+        <a href="#publications" data-i18n="nav.papers">Papers</a>
+        <a href="#projects" data-i18n="nav.projects">Projects</a>
+        <a href="#experience" data-i18n="nav.experience">Experience</a>
+        <a href="#honors" data-i18n="nav.honors">Honors</a>
+        <a href="#activities" data-i18n="nav.activities">Activities</a>
+        <a href="https://www.cnblogs.com/" target="_blank" rel="noopener noreferrer" data-i18n="nav.blog">Blog</a>
       </div>
     </nav>
 
     <section class="card hero">
       <div>
-        <h1>Zongmin Zhang (Nagato)</h1>
+        <h1 data-i18n="hero.name">Zongmin Zhang</h1>
 
         <p class="identity">
-          HKUST Computer Science Undergraduate<br>
-          AI for Science Researcher
+          <span data-i18n="hero.identity.line1">HKUST Computer Science Undergraduate</span><br>
+          <span data-i18n="hero.identity.line2">AI for Science Researcher</span>
         </p>
 
-        <p class="about-line">
-          I am a senior undergraduate student majoring in Computer Science with a minor in Chemistry at The Hong Kong University of Science and Technology (HKUST). My research focuses on AI for Science (AI4Sci), AI for Chemistry (AI4Chem), autonomous scientific discovery (AutoResearch), multi-agent systems (MAS), and large language models (LLM).
+        <p class="about-line" data-i18n="hero.about">
+          I am a senior undergraduate student majoring in Computer Science with a minor in Chemistry at The Hong Kong
+          University of Science and Technology (HKUST). My research focuses on AI for Science (AI4Sci), AI for Chemistry
+          (AI4Chem), autonomous scientific discovery (AutoResearch), multi-agent systems (MAS), and large language
+          models (LLM).
         </p>
 
         <ul class="focus-list" aria-label="Research interests">
-          <li>AI for Science</li>
-          <li>AI for Chemistry</li>
-          <li>Autonomous Scientific Discovery</li>
-          <li>Multi-Agent Systems</li>
-          <li>Large Language Models</li>
+          <li data-i18n="hero.interest.1">AI for Science</li>
+          <li data-i18n="hero.interest.2">AI for Chemistry</li>
+          <li data-i18n="hero.interest.3">Autonomous Scientific Discovery</li>
+          <li data-i18n="hero.interest.4">Multi-Agent Systems</li>
+          <li data-i18n="hero.interest.5">Large Language Models</li>
         </ul>
 
         <div class="links">
           <a class="pill-link" href="mailto:zzhanghw@connect.ust.hk">
-            <svg viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-            Email
+            <svg viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" stroke-width="2.2" fill="none"
+              stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px;">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <span data-i18n="hero.email">Email</span>
           </a>
           <a class="pill-link" href="https://github.com/NagatoBigSeven" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" style="margin-right: 6px;"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.11.82-.26.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.22.694.825.576C20.566 21.797 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
-            GitHub
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" style="margin-right: 6px;">
+              <path
+                d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.11.82-.26.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.22.694.825.576C20.566 21.797 24 17.3 24 12c0-6.63-5.37-12-12-12z" />
+            </svg>
+            <span data-i18n="hero.github">GitHub</span>
           </a>
-          <a class="pill-link" href="https://scholar.google.com/citations?user=2yrrFZkAAAAJ" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" style="margin-right: 6px;"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9l12 9 9.36-7.02V18h2.64V9.9L24 9 12 0z"/></svg>
-            Google Scholar
+          <a class="pill-link" href="https://scholar.google.com/citations?user=2yrrFZkAAAAJ" target="_blank"
+            rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" style="margin-right: 6px;">
+              <path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9l12 9 9.36-7.02V18h2.64V9.9L24 9 12 0z" />
+            </svg>
+            <span data-i18n="hero.googleScholar">Google Scholar</span>
           </a>
           <a class="pill-link" href="https://orcid.org/0009-0003-7179-3175" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" style="margin-right: 6px; color: #a6c307;"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.541 0 .955.438.955.979s-.414.979-.955.979H6.071v12.283H4.254V5.378H7.37zM18.847 12c0 2.886-1.556 4.329-3.879 4.329h-3.342V5.378h3.407c2.308 0 3.814 1.419 3.814 4.303V12zm-5.405-4.887h-1.002v8.429h1.002c1.419 0 2.247-.941 2.247-2.923V10.05c0-2-.801-2.937-2.247-2.937z"/></svg>
-            ORCID
+            <svg viewBox="0 0 256 256" width="15" height="15" fill="currentColor" style="margin-right: 6px;">
+              <path
+                d="M128 0C57.3 0 0 57.3 0 128s57.3 128 128 128 128-57.3 128-128S198.7 0 128 0zM86.3 46.2c5.8 0 10.5 4.7 10.5 10.5s-4.7 10.5-10.5 10.5-10.5-4.7-10.5-10.5 4.7-10.5 10.5-10.5zM96.1 76.1v103.7H76.5V76.1h19.6zm37.3 0h53.1c36.2 0 53.5 26.1 53.5 51.8 0 30.6-21.1 51.9-54.4 51.9h-52.2V76.1zm19.6 16.5v70.7h31.3c22.2 0 35.7-14.6 35.7-35.3 0-18.8-11.7-35.4-34.8-35.4h-32.2z" />
+            </svg>
+            <span data-i18n="hero.orcid">ORCID</span>
           </a>
-          <a class="pill-link" href="https://openreview.net/profile?id=%7EZongmin_Zhang2" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-            OpenReview
+          <a class="pill-link" href="https://openreview.net/profile?id=%7EZongmin_Zhang2" target="_blank"
+            rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" stroke-width="2.2" fill="none"
+              stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px;">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            <span data-i18n="hero.openreview">OpenReview</span>
           </a>
-          <a class="pill-link" href="https://www.linkedin.com/in/zongmin-zhang" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" style="margin-right: 6px;"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-            LinkedIn
+          <a class="pill-link" href="https://www.linkedin.com/in/zongmin-zhang" target="_blank"
+            rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" style="margin-right: 6px;">
+              <path
+                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+            </svg>
+            <span data-i18n="hero.linkedin">LinkedIn</span>
           </a>
           <a class="pill-link" href="https://x.com/zongmin_zhang" target="_blank" rel="noopener noreferrer">
-            <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" style="margin-right: 6px;"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-            X
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" style="margin-right: 6px;">
+              <path
+                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg>
+            <span data-i18n="hero.x">X</span>
+          </a>
+          <a class="pill-link pill-link-accent" href="assets/CV_Zongmin.pdf" download>
+            <svg viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" stroke-width="2.2" fill="none"
+              stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px;">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span data-i18n="hero.cv">CV</span>
           </a>
         </div>
       </div>
 
       <div class="profile-photo-wrap">
-        <img src="assets/profile.jpeg" alt="Portrait of Zongmin Zhang (Nagato)" class="profile-photo">
+        <img src="assets/profile.webp" alt="Portrait of Zongmin Zhang" class="profile-photo" width="172" height="218" data-i18n="hero.profileAlt">
       </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="card" id="news">
+      <h2 data-i18n="section.news">Latest News</h2>
+      <!-- Populated from data/content.js by main.js (renderSiteContent) -->
+      <div class="news-list" id="news-list"></div>
+      <button class="news-toggle" id="news-toggle" data-i18n="news.showMore">Show more</button>
     </section>
 
     <section class="card" id="publications">
-      <h2>Selected Publications &amp; Preprints</h2>
+      <h2 data-i18n="section.papers">Selected Publications &amp; Preprints</h2>
 
-      <div class="publication-card">
-        <div class="publication-cover-wrap">
-          <img src="assets/adsmind-logo.png" alt="AdsMind logo" class="publication-cover logo-cover">
-        </div>
-        <div>
-          <div class="item-title">
-            AdsMind: A Physics-Grounded Multi-Agent System for Self-Correcting Discovery of Adsorption Configurations on Heterogeneous Catalyst Surfaces
-          </div>
-          <div class="authors"><span class="me">Zongmin Zhang</span>, Yuyang Lou, Bowen Zhang, Junwu Chen, Ryo Kuroki, Xuan Vu Nguyen, Edvin Fako, Lixue Cheng, and Philippe Schwaller</div>
-          <div class="highlight">
-            <span class="highlight-label">Highlight:</span>
-            Led the implementation, benchmark design and cross-backend evaluation of AdsMind, a closed-loop, physics-grounded multi-agent system for autonomous adsorption-configuration discovery on heterogeneous catalyst surfaces.
-          </div>
-          <div class="muted">arXiv preprint arXiv:2606.19152, 2026. Journal manuscript under review.</div>
-          <div class="mini-links">
-            <a class="mini-link" href="https://arxiv.org/abs/2606.19152" target="_blank" rel="noopener noreferrer">arXiv</a>
-          </div>
-          <span class="tag">Adsorption</span>
-          <span class="tag">Multi-Agent Systems</span>
-          <span class="tag">Heterogeneous Catalysis</span>
-        </div>
+      <!-- Filter chips + cards populated from data/content.js by main.js -->
+      <div class="pub-toolbar">
+        <div class="pub-filters" id="pub-filters" role="group" aria-label="Filter publications by topic" hidden></div>
+        <button class="download-bib-btn" id="download-all-bib" type="button" data-i18n="bibtex.downloadAll">Download all BibTeX</button>
       </div>
-
-      <div class="publication-card">
-        <div class="publication-cover-wrap">
-          <div class="publication-cover-text" aria-label="CatDT">CatDT</div>
-        </div>
-        <div>
-          <div class="item-title">
-            Autonomous Heterogeneous Catalyst Discovery with a Self-Evolving Multi-Agent Digital Twin
-          </div>
-          <div class="authors">Zhilong Song, <span class="me">Zongmin Zhang</span>, and Lixue Cheng</div>
-          <div class="highlight">
-            <span class="highlight-label">Highlight:</span>
-            Conducted Codex-based ablation experiments and contributed to the evaluation of CatDT, a self-evolving multi-agent digital-twin framework for autonomous heterogeneous catalyst discovery.
-          </div>
-          <div class="muted">arXiv preprint arXiv:2606.05050, 2026. Journal manuscript under review.</div>
-          <div class="mini-links">
-            <a class="mini-link" href="https://arxiv.org/abs/2606.05050" target="_blank" rel="noopener noreferrer">arXiv</a>
-          </div>
-          <span class="tag">Heterogeneous Catalysis</span>
-          <span class="tag">Digital Twin</span>
-          <span class="tag">Multi-Agent Systems</span>
-        </div>
-      </div>
-
-      <div class="publication-card">
-        <div class="publication-cover-wrap">
-          <img src="assets/logo-llm-hackathon.png" alt="LLM hackathon logo" class="publication-cover logo-cover">
-        </div>
-        <div>
-          <div class="item-title">
-            From Knowledge to Action: Outcomes of the 2025 Large Language Model (LLM) Hackathon for Applications in Materials Science and Chemistry
-          </div>
-          <div class="authors">Aritra Roy et al. (including <span class="me">Zongmin Zhang</span>)</div>
-          <div class="highlight">
-            <span class="highlight-label">Highlight:</span>
-            Large-author community report on LLM-enabled scientific workflows from an international hackathon at the intersection of large language models, materials science, and chemistry.
-          </div>
-          <div class="muted">arXiv preprint arXiv:2605.03205, 2026.</div>
-          <div class="mini-links">
-            <a class="mini-link" href="https://arxiv.org/abs/2605.03205" target="_blank" rel="noopener noreferrer">arXiv</a>
-          </div>
-          <span class="tag">Large Language Models</span>
-          <span class="tag">AI Agent</span>
-          <span class="tag">Materials Science</span>
-          <span class="tag">Chemistry</span>
-        </div>
-      </div>
+      <div class="pub-list" id="pub-list"></div>
     </section>
 
     <section class="card" id="projects">
-      <h2>Selected Projects</h2>
+      <h2 data-i18n="section.projects">Selected Projects</h2>
 
-      <div class="project-grid">
-        <div class="project-card">
-          <div>
-            <div class="project-title">AdsMind</div>
-            <div class="project-desc">
-              A closed-loop, physics-grounded multi-agent system for autonomous adsorption-configuration discovery on heterogeneous catalyst surfaces.
-            </div>
-          </div>
-          <div class="mini-links">
-            <a class="mini-link" href="https://arxiv.org/abs/2606.19152" target="_blank" rel="noopener noreferrer">Preprint</a>
-          </div>
-        </div>
-      </div>
+      <div class="project-grid" id="project-grid"></div>
     </section>
 
     <section class="card" id="experience">
-      <h2>Education &amp; Research Experience</h2>
+      <h2 data-i18n="section.experience">Education &amp; Research Experience</h2>
 
       <div class="experience-awards-grid">
         <div class="info-panel">
-          <h3>Education</h3>
-          <div class="timeline">
-            <div class="timeline-item">
-              <img class="school-logo logo-hkust" src="assets/logo-hkust.png" alt="HKUST logomark">
-              <div>
-                <div class="timeline-time">Sep 2023 - Present</div>
-                <div class="timeline-title">The Hong Kong University of Science and Technology (HKUST), Bachelor of Engineering (BEng) in Computer Science, minor in Chemistry.</div>
-              </div>
-            </div>
-
-            <div class="timeline-item">
-              <img class="school-logo logo-epfl" src="assets/logo-epfl.svg" alt="EPFL logo">
-              <div>
-                <div class="timeline-time">Sep 2025 - Feb 2026</div>
-                <div class="timeline-title">HKUST SENG Undergraduate Outbound Exchange Student, École polytechnique fédérale de Lausanne (EPFL), School of Computer and Communication Sciences, Lausanne, Switzerland.</div>
-              </div>
-            </div>
-
-            <div class="timeline-item">
-              <img class="school-logo logo-sjtu" src="assets/logo-sjtu.png" alt="SJTU seal">
-              <div>
-                <div class="timeline-time">Feb 2025 - Jun 2025</div>
-                <div class="timeline-title">Association of Pacific Rim Universities (APRU) Virtual Student Exchange (VSE), hosted online by Shanghai Jiao Tong University (SJTU), School of Materials Science and Engineering.</div>
-              </div>
-            </div>
-          </div>
+          <h3 data-i18n="section.education">Education</h3>
+          <div class="timeline" id="edu-timeline"></div>
         </div>
 
         <div class="info-panel">
-          <h3>Research</h3>
-          <div class="timeline">
-            <div class="timeline-item">
-              <img class="school-logo logo-hkust" src="assets/logo-hkust.png" alt="HKUST logomark">
-              <div>
-                <div class="timeline-time">Feb 2026 - Present</div>
-                <div class="timeline-title">Undergraduate Research Assistant (UGRA), AI for Physical Sciences (AI4PhysSci) Lab, HKUST. Supervisor: Prof. Sherry Lixue Cheng.</div>
-              </div>
-            </div>
-
-            <div class="timeline-item">
-              <img class="school-logo logo-epfl" src="assets/logo-epfl.svg" alt="EPFL logo">
-              <div>
-                <div class="timeline-time">Sep 2025 - Jan 2026</div>
-                <div class="timeline-title">Project student, Laboratory of Artificial Chemical Intelligence (LIAC), EPFL. Supervisors: Prof. Philippe Schwaller and Dr. Edvin Fako.</div>
-              </div>
-            </div>
-
-            <div class="timeline-item">
-              <img class="school-logo logo-hkust" src="assets/logo-hkust.png" alt="HKUST logomark">
-              <div>
-                <div class="timeline-time">Jun 2024 - May 2026</div>
-                <div class="timeline-title">HKUST UROP projects in database knowledge discovery, VR user experience assessment, and orbital-based learning for property prediction.</div>
-              </div>
-            </div>
-          </div>
+          <h3 data-i18n="section.research">Research</h3>
+          <div class="timeline" id="research-timeline"></div>
         </div>
       </div>
+    </section>
+
+    <!-- Collaborators Section -->
+    <section class="card" id="collaborators">
+      <h2 data-i18n="section.collaborators">Collaborators</h2>
+      <div class="collab-grid" id="collab-grid"></div>
     </section>
 
     <section class="card" id="honors">
-      <h2>Selected Honors</h2>
+      <h2 data-i18n="section.honors">Selected Honors</h2>
 
       <div class="experience-awards-grid">
         <div class="info-panel">
-          <h3>Scholarships</h3>
-          <div class="award-list">
-            <span class="award-chip">HKSAR Government Scholarship - Continuing Awards, 2025/26</span>
-            <span class="award-chip">HKSAR Government Scholarship - Continuing Awards, 2024/25</span>
-            <span class="award-chip">Hong Kong, China-APEC Scholarship, 2025/26</span>
-            <span class="award-chip">Hong Kong, China-APEC Scholarship, 2024/25</span>
-            <span class="award-chip">HKSAR Government Scholarship - Reaching Out Award (ROA), 2025/26</span>
-            <span class="award-chip">HKUST Study Abroad Grant</span>
-          </div>
+          <h3 data-i18n="section.scholarships">Scholarships</h3>
+          <div class="award-list" id="scholarships-list"></div>
         </div>
 
         <div class="info-panel">
-          <h3>Honors</h3>
-          <div class="award-list">
-            <span class="award-chip">HKUST SENG Dean's List, Spring 2025</span>
-            <span class="award-chip">HKUST SENG Dean's List, Fall 2024</span>
-            <span class="award-chip">HKUST SENG Dean's List, Spring 2024</span>
-            <span class="award-chip">HKUST SENG Dean's List, Fall 2023</span>
-          </div>
+          <h3 data-i18n="section.honorsList">Honors</h3>
+          <div class="award-list" id="deans-list"></div>
         </div>
 
         <div class="info-panel">
-          <h3>Awards</h3>
-          <div class="award-list">
-            <span class="award-chip">Finalist Award, HKUST GenAI Hackathon Competition on a Putonghua Web Tool, 2026</span>
-            <span class="award-chip">First Prize, National University Students' Data Analysis Popular Science Knowledge Competition (Theory Track), 2026</span>
-          </div>
+          <h3 data-i18n="section.awards">Awards</h3>
+          <div class="award-list" id="awards-list"></div>
         </div>
       </div>
     </section>
 
-    <section class="card" id="service">
-      <h2>Extracurricular Activities &amp; Skills</h2>
+    <section class="card" id="activities">
+      <h2 data-i18n="section.activities">Extracurricular Activities &amp; Skills</h2>
 
       <div class="note-grid">
         <div class="note-card">
-          <h3>Service & Leadership</h3>
-          <p class="section-note">Reviewer and community roles.</p>
-          <ul class="post-list">
-            <li>Reviewer, ICML 2026 AI for Science Workshop.</li>
-            <li>Founding Organizer, HKUST AI for Chemistry Club, a student-led academic community supported by the Department of Chemistry.</li>
-            <li>Student Representative, HKUST SENG Mainland Undergraduate Recruitment Trip for JEE Main Round Interview Mingling Sessions.</li>
-          </ul>
+          <h3 data-i18n="section.activitiesLeadership">Service &amp; Leadership</h3>
+          <p class="section-note" data-i18n="activities.note">Reviewer and community roles.</p>
+          <ul class="post-list" id="leadership-list"></ul>
         </div>
 
         <div class="note-card">
-          <h3>Teaching</h3>
-          <p class="section-note">Undergraduate teaching and peer-support roles.</p>
-          <ul class="post-list">
-            <li>UGTA, HKUST COMP2011 Programming with C++, Spring 2025.</li>
-            <li>UGTA, HKUST CSE Programming Commons, Fall 2024 and Spring 2026.</li>
-          </ul>
+          <h3 data-i18n="section.teaching">Teaching</h3>
+          <p class="section-note" data-i18n="teaching.note">Undergraduate teaching and peer-support.</p>
+          <ul class="post-list" id="teaching-list"></ul>
         </div>
 
         <div class="note-card">
-          <h3>Technical Stack</h3>
-          <p class="section-note">Selected tools and methods.</p>
-          <ul class="post-list">
-            <li>C/C++, Java, Python, Scala, C#, JavaScript, Rust.</li>
-            <li>PyTorch, TensorRT, NumPy, OpenCV, VTK, YOLO, SAM.</li>
-            <li>LangChain, LangGraph, ReAct, RAG, MCP, skills.</li>
-            <li>Codex, Claude Code, OpenClaw, Hermès Agent.</li>
-            <li>RDKit, ASE.</li>
-            <li>Linux, bash, zsh.</li>
-          </ul>
+          <h3 data-i18n="section.techStack">Technical Stack</h3>
+          <p class="section-note" data-i18n="techStack.note">Selected tools and methods.</p>
+          <ul class="post-list" id="techstack-list"></ul>
         </div>
 
         <div class="note-card">
-          <h3>Languages</h3>
-          <p class="section-note">Working languages and study interests.</p>
-          <ul class="post-list">
-            <li>Mandarin: native.</li>
-            <li>English: professional working proficiency.</li>
-            <li>Japanese: approximately JLPT N3 level.</li>
-            <li>French: approximately CEFR A1 level.</li>
-            <li>Cantonese: basic.</li>
-          </ul>
+          <h3 data-i18n="section.languages">Languages</h3>
+          <p class="section-note" data-i18n="languages.note">Working languages and study interests.</p>
+          <ul class="post-list" id="languages-list"></ul>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    Last updated June 20, 2026. Built with GitHub Pages and adapted from the Minimal Academic Homepage template.
+    <span class="footer-updated" data-i18n="footer.updated">Last updated June 25, 2026. Built with GitHub Pages and
+      adapted from the Minimal Academic Homepage template.</span>
+    <span class="site-counter" aria-label="Academic homepage visit counter">
+      <span class="site-counter-label" data-i18n="footer.visits">Visits</span>
+      <img
+        src="https://m.h4ck.org.cn/@nagato-home?theme=yousa-ling&amp;padding=7&amp;scale=0.75&amp;align=center&amp;pixelated=1&amp;darkmode=auto"
+        alt="" decoding="async" referrerpolicy="no-referrer" onerror="this.hidden = true">
+    </span>
   </footer>
-  <div class="waifu" id="waifu">
-    <div class="waifu-tips" style="opacity: 1;"></div>
+
+  <div class="bibtex-toast" id="bibtex-toast" role="status" aria-live="polite" aria-atomic="true" hidden>
+    <span class="bibtex-toast-icon" aria-hidden="true">✓</span>
+    <span class="bibtex-toast-text" data-i18n="bibtex.toast">BibTeX copied to clipboard</span>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" class="back-to-top-btn" aria-label="Back to top" title="Back to top">
+    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2.2" fill="none"
+      stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <div class="waifu" id="waifu" aria-hidden="true">
+    <div class="waifu-tips" style="opacity: 0;"></div>
     <canvas id="live2d" width="280" height="250" class="live2d"></canvas>
     <div class="waifu-tool">
-      <span class="fui-home"><svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></span>
-      <span class="fui-chat"><svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></span>
-      <span class="fui-eye"><svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></span>
-      <span class="fui-user"><svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></span>
-      <span class="fui-photo"><svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg></span>
-      <span class="fui-info-circle"><svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg></span>
-      <span class="fui-cross"><svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></span>
+      <span class="fui-home"><svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2.2"
+          fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg></span>
+      <span class="fui-chat"><svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2.2"
+          fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg></span>
+      <span class="fui-eye"><svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2.2"
+          fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+          <circle cx="12" cy="12" r="3"></circle>
+        </svg></span>
+      <span class="fui-user"><svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2.2"
+          fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg></span>
+      <span class="fui-photo"><svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2.2"
+          fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+          <circle cx="12" cy="13" r="4"></circle>
+        </svg></span>
+      <span class="fui-science" title="讲个科学冷笑话"><svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2.2"
+          fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" y1="9" x2="20" y2="9"></line>
+          <line x1="9" y1="3" x2="15" y2="3"></line>
+          <path d="M10 3v6L4.35 19.1A2 2 0 0 0 6 22h12a2 2 0 0 0 1.65-2.9L14 9V3z"></path>
+        </svg></span>
+      <span class="fui-info-circle"><svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor"
+          stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="16" x2="12" y2="12"></line>
+          <line x1="12" y1="8" x2="12.01" y2="8"></line>
+        </svg></span>
+      <span class="fui-cross"><svg viewBox="0 0 24 24" width="14" height="14" stroke="currentColor" stroke-width="2.2"
+          fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg></span>
     </div>
   </div>
-  <script type="text/javascript">
-    // 1. Theme Toggle Logic
-    var themeToggleBtn = document.getElementById('theme-toggle');
-    if (themeToggleBtn) {
-      themeToggleBtn.addEventListener('click', function() {
-        var currentTheme = document.documentElement.getAttribute('data-theme');
-        var newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        
-        // Notify any active components (like mascot, if listening)
-        window.dispatchEvent(new CustomEvent('themechanged', { detail: { theme: newTheme } }));
-      });
-    }
 
-    // 2. Kanban Mascot Loading
-    if (window.innerWidth > 768) {
-      // 动态加载 CSS 样式表，避免阻塞首屏渲染
-      var waifuCss = document.createElement('link');
-      waifuCss.rel = 'stylesheet';
-      waifuCss.type = 'text/css';
-      var suffix = window.location.protocol === 'file:' ? '' : '?v=2';
-      waifuCss.href = 'assets/kanban/waifu.css' + suffix;
-      document.head.appendChild(waifuCss);
+  <!-- Terminal Console Modal -->
+  <div id="terminal-modal" class="terminal-modal" hidden>
+    <div class="terminal-header">
+      <span class="terminal-dot close-btn" title="Close"></span>
+      <span class="terminal-dot minimize-btn" title="Minimize"></span>
+      <span class="terminal-dot expand-btn" title="Maximize"></span>
+      <span class="terminal-title">zongmin@hkust: ~</span>
+    </div>
+    <div class="terminal-body" id="terminal-body">
+      <div class="terminal-output" id="terminal-output">
+        <div>Welcome to Zongmin's Academic Homepage Console.</div>
+        <div>Type <span class="cmd-highlight">help</span> to list available commands.</div>
+        <div style="margin-bottom: 10px;">Press <span class="cmd-highlight">`</span> (backtick) to close this terminal.</div>
+      </div>
+      <div class="terminal-input-line">
+        <span class="terminal-prompt">zongmin@hkust:~$</span>
+        <input type="text" id="terminal-input" autocomplete="off" spellcheck="false" aria-label="Terminal input">
+      </div>
+    </div>
+  </div>
 
-      // 动态加载脚本的辅助函数
-      function loadScript(src, callback) {
-        var script = document.createElement('script');
-        script.type = 'text/javascript';
-        script.src = src;
-        script.onload = callback;
-        document.body.appendChild(script);
-      }
+  <!-- NetEase BGM Player -->
+  <div id="music-card" class="music-card" role="complementary" aria-label="Background music player">
+    <button id="music-close-btn" class="music-close-btn" aria-label="Minimize player" title="Minimize player">&times;</button>
+    <div class="music-vinyl-wrap">
+      <img id="music-cover" class="music-vinyl" src="assets/vinyl-placeholder.svg" alt="Vinyl record cover" loading="lazy">
+      <div class="music-vinyl-center"></div>
+    </div>
+    <div class="music-info">
+      <div id="music-title" class="music-title">Research BGM</div>
+      <div id="music-artist" class="music-artist">Loading Netease Playlist...</div>
+      <div class="music-controls">
+        <button id="music-play-btn" class="music-btn" aria-label="Play music">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+            <polygon points="5 3 19 12 5 21 5 3" id="play-poly"></polygon>
+          </svg>
+        </button>
+        <button id="music-next-btn" class="music-btn" aria-label="Next track">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="5 4 15 12 5 20 5 4" fill="currentColor"></polygon>
+            <line x1="19" y1="5" x2="19" y2="19" stroke="currentColor"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="music-progress-bar">
+        <div id="music-progress" class="music-progress"></div>
+      </div>
+    </div>
+    <audio id="music-audio" crossorigin="anonymous"></audio>
+  </div>
 
-      // 按正确依赖顺序加载：jQuery -> live2d -> waifu-tips
-      loadScript('assets/kanban/jquery-3.2.1.min.js', function() {
-        loadScript('assets/kanban/live2d.min.js', function() {
-          loadScript('assets/kanban/waifu-tips.js', function() {
-            initModel();
-          });
-        });
-      });
-    } else {
-      // 移动端环境下隐藏看板娘 DOM 结构，防止占用任何排版空间
-      var waifuEl = document.getElementById('waifu');
-      if (waifuEl) waifuEl.style.display = 'none';
-    }
+  <!-- Floating Music Toggle (when minimized) -->
+  <button id="music-toggle-btn" class="music-toggle-btn" style="display: none;" aria-label="Open BGM player" title="Open BGM player">
+    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+      <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+    </svg>
+  </button>
 
-    // 3. Dynamic Molecular Particle Network Background
-    (function() {
-      var canvas = document.getElementById('bg-canvas');
-      if (!canvas) return;
-      var ctx = canvas.getContext('2d');
-      var width = canvas.width = window.innerWidth;
-      var height = canvas.height = window.innerHeight;
+  <!-- Overlay Canvas for Easter Eggs -->
+  <canvas id="easter-egg-canvas" style="position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:9999; display:none;"></canvas>
+  <script type="text/javascript" src="data/content.js?v=20260625-2"></script>
+  <script type="text/javascript" src="assets/main.js?v=20260625-2"></script>
 
-      var particles = [];
-      var maxParticles = Math.min(50, Math.floor((width * height) / 30000));
-      var connectionDistance = 110;
-      
-      var mouse = { x: null, y: null };
-      
-      function Particle() {
-        this.x = Math.random() * width;
-        this.y = Math.random() * height;
-        this.vx = (Math.random() - 0.5) * 0.35;
-        this.vy = (Math.random() - 0.5) * 0.35;
-        this.radius = Math.random() * 2 + 1.2;
-      }
-      Particle.prototype.update = function() {
-        this.x += this.vx;
-        this.y += this.vy;
-        
-        if (this.x < 0 || this.x > width) this.vx *= -1;
-        if (this.y < 0 || this.y > height) this.vy *= -1;
-      };
-      Particle.prototype.draw = function() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fill();
-      };
-
-      function init() {
-        particles = [];
-        for (var i = 0; i < maxParticles; i++) {
-          particles.push(new Particle());
-        }
-      }
-
-      function getColors() {
-        var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        return {
-          particle: isDark ? 'rgba(56, 189, 248, 0.3)' : 'rgba(0, 102, 204, 0.18)',
-          line: isDark ? 'rgba(56, 189, 248, 0.08)' : 'rgba(0, 102, 204, 0.06)'
-        };
-      }
-
-      var colors = getColors();
-      window.addEventListener('themechanged', function() {
-        colors = getColors();
-      });
-
-      function animate() {
-        ctx.clearRect(0, 0, width, height);
-        
-        ctx.fillStyle = colors.particle;
-        ctx.strokeStyle = colors.line;
-        
-        for (var i = 0; i < particles.length; i++) {
-          particles[i].update();
-          particles[i].draw();
-          
-          for (var j = i + 1; j < particles.length; j++) {
-            var dx = particles[i].x - particles[j].x;
-            var dy = particles[i].y - particles[j].y;
-            var dist = Math.sqrt(dx * dx + dy * dy);
-            
-            if (dist < connectionDistance) {
-              ctx.beginPath();
-              ctx.lineWidth = (1 - dist / connectionDistance) * 1.0;
-              ctx.moveTo(particles[i].x, particles[i].y);
-              ctx.lineTo(particles[j].x, particles[j].y);
-              ctx.stroke();
-            }
-          }
-          
-          // Connect to mouse
-          if (mouse.x !== null && mouse.y !== null) {
-            var dx2 = particles[i].x - mouse.x;
-            var dy2 = particles[i].y - mouse.y;
-            var dist2 = Math.sqrt(dx2 * dx2 + dy2 * dy2);
-            if (dist2 < connectionDistance * 1.3) {
-              ctx.beginPath();
-              ctx.lineWidth = (1 - dist2 / (connectionDistance * 1.3)) * 0.7;
-              ctx.moveTo(particles[i].x, particles[i].y);
-              ctx.lineTo(mouse.x, mouse.y);
-              ctx.stroke();
-            }
-          }
-        }
-        
-        requestAnimationFrame(animate);
-      }
-
-      window.addEventListener('resize', function() {
-        width = canvas.width = window.innerWidth;
-        height = canvas.height = window.innerHeight;
-        maxParticles = Math.min(50, Math.floor((width * height) / 30000));
-        init();
-      });
-
-      window.addEventListener('mousemove', function(e) {
-        mouse.x = e.clientX;
-        mouse.y = e.clientY;
-      });
-
-      window.addEventListener('mouseleave', function() {
-        mouse.x = null;
-        mouse.y = null;
-      });
-
-      init();
-      animate();
+  <!-- Privacy-friendly analytics (GoatCounter): no cookies, no personal data.
+       Active — pageviews go to https://nagatobigseven.goatcounter.com (dashboard).
+       Only loads on the production domain (not localhost / file:// / CI), so dev
+       and tests don't pollute stats. Tip: run localStorage.setItem('skipgc','t')
+       in the browser console on the live site to exclude your own visits. -->
+  <script>
+    (function () {
+      if (location.hostname !== 'nagatobigseven.github.io') return;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = '//gc.zgo.at/count.js';
+      s.setAttribute('data-goatcounter', 'https://nagatobigseven.goatcounter.com/count');
+      document.body.appendChild(s);
     })();
   </script>
 </body>
+
 </html>

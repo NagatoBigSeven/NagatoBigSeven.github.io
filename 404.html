@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Page not found — Zongmin Zhang's Academic Homepage">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <title>404 — Page Not Found | Zongmin Zhang</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&display=swap">
+  <style>
+    :root {
+      --bg: #f3f5f8;
+      --card: rgba(255, 255, 255, 0.82);
+      --card-border: rgba(255, 255, 255, 0.6);
+      --text: #1c1c1e;
+      --muted: #636366;
+      --link: #0066cc;
+      --link-bg: rgba(242, 248, 255, 0.7);
+      --link-border: rgba(0, 102, 204, 0.15);
+      --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0d131f;
+        --card: rgba(18, 25, 41, 0.7);
+        --card-border: rgba(255, 255, 255, 0.05);
+        --text: #f1f5f9;
+        --muted: #94a3b8;
+        --link: #38bdf8;
+        --link-bg: rgba(30, 41, 59, 0.6);
+        --link-border: rgba(56, 189, 248, 0.2);
+        --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .error-card {
+      text-align: center;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 60px 48px;
+      max-width: 520px;
+      margin: 24px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .error-code {
+      font-family: 'Outfit', sans-serif;
+      font-size: 96px;
+      font-weight: 800;
+      line-height: 1;
+      background: linear-gradient(135deg, var(--link), var(--muted));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 16px;
+    }
+
+    .error-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .error-message {
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+
+    .home-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 24px;
+      border-radius: 999px;
+      border: 1px solid var(--link-border);
+      background: var(--link-bg);
+      color: var(--link);
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .home-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .home-link svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      stroke-width: 2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+  </style>
+</head>
+<body>
+  <div class="error-card">
+    <div class="error-code">404</div>
+    <h1 class="error-title">Page Not Found</h1>
+    <p class="error-message">
+      The page you're looking for doesn't exist or has been moved.<br>
+      Let's get you back to somewhere familiar.
+    </p>
+    <a class="home-link" href="./">
+      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      Back to Homepage
+    </a>
+  </div>
+</body>
+</html>

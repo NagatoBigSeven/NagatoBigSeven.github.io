@@ -1,0 +1,50 @@
+#!/bin/sh
+# Versioned pre-push hook (travels with the repo).
+#
+# Enable once per clone:   git config core.hooksPath hooks
+#
+# Runs the same hard gates as CI before a push, so a regression (like the
+# Live2D loadlive2d X-arg crash, or a dangling asset reference) can't ship.
+# Bypass when needed with:  git push --no-verify
+# Skips browser tests gracefully if node / Chrome are unavailable.
+
+root="$(git rev-parse --show-toplevel)"
+
+if ! command -v node >/dev/null 2>&1; then
+  echo "pre-push: node not found — skipping tests."
+  exit 0
+fi
+
+# 1) Link / asset integrity (fast, no browser) — fails on dangling local refs.
+echo "pre-push: checking local asset integrity ..."
+if ! node "$root/test/links.mjs"; then
+  echo ""
+  echo "pre-push: ❌ link check FAILED — push blocked."
+  echo "          fix the dangling reference, or bypass with:  git push --no-verify"
+  exit 1
+fi
+
+# 1b) feed.xml must be regenerated from data/content.js (no drift).
+if ! node "$root/tools/build-feed.mjs" --check; then
+  echo ""
+  echo "pre-push: ❌ feed.xml is stale — run: node tools/build-feed.mjs"
+  echo "          then commit, or bypass with:  git push --no-verify"
+  exit 1
+fi
+
+# 2) Smoke / regression test (needs Chrome) — skip gracefully if unavailable.
+CHROME="${CHROME:-/Applications/Google Chrome.app/Contents/MacOS/Google Chrome}"
+if [ ! -e "$CHROME" ] && ! command -v google-chrome >/dev/null 2>&1 && ! command -v chromium >/dev/null 2>&1; then
+  echo "pre-push: Chrome not found — skipping smoke test."
+  exit 0
+fi
+
+echo "pre-push: running test/smoke.mjs ..."
+node "$root/test/smoke.mjs"
+status=$?
+if [ "$status" -ne 0 ]; then
+  echo ""
+  echo "pre-push: ❌ smoke test FAILED — push blocked."
+  echo "          fix the failure, or bypass with:  git push --no-verify"
+fi
+exit "$status"

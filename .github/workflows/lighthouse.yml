@@ -1,0 +1,22 @@
+name: lighthouse
+
+# Lighthouse audit of the live site with score budgets (see .lighthouserc.json):
+# accessibility / best-practices / SEO are hard floors (>= 0.9, fail = email
+# alert); performance is a soft warning (it fluctuates with network/CDN). Runs
+# weekly + on demand only — NOT on PRs, so external noise never blocks dev.
+on:
+  schedule:
+    - cron: '30 6 * * 1'   # Mondays 06:30 UTC
+  workflow_dispatch:
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Audit live site against budgets
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          configPath: ./.lighthouserc.json
+          uploadArtifacts: true
+          temporaryPublicStorage: true

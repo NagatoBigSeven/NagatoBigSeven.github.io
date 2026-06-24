@@ -1,79 +1,126 @@
 .waifu {
-	position:fixed;
-	bottom:0;
-	left:0;
-	z-index:1;
-	font-size:0;
-	-webkit-transform:translateY(3px);
-	transform:translateY(3px)
+	--waifu-y: 3px;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: 1300;
+	width: 280px;
+	height: 250px;
+	font-size: 0;
+	overflow: visible;
+	isolation: isolate;
+	-webkit-transform: translateY(var(--waifu-y));
+	transform: translateY(var(--waifu-y));
+	-webkit-transform-origin: left bottom;
+	transform-origin: left bottom;
 }
+
 .waifu:hover {
-	-webkit-transform:translateY(0);
-	transform:translateY(0)
+	--waifu-y: 0px;
 }
-.waifu.showMyhkPlayer {
-	-webkit-transform:translate3d(365px,0,0);
-	-moz-transform:translate3d(365px,0,0);
-	-ms-transform:translate3d(365px,0,0);
-	transform:translate3d(365px,0,0)
+
+.waifu-tips {
+	opacity: 0;
+	pointer-events: none;
+	width: 250px;
+	min-height: 50px;
+	left: 20px;
+	bottom: 250px;
+	margin: 0;
+	padding: 8px 12px;
+	border: 1px solid var(--card-border);
+	border-radius: 14px;
+	background-color: var(--card);
+	backdrop-filter: blur(7px);
+	-webkit-backdrop-filter: blur(7px);
+	box-shadow: var(--shadow);
+	font-size: 12.5px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	position: absolute;
+	z-index: 4;
+	animation-delay: 5s;
+	animation-duration: 50s;
+	animation-iteration-count: infinite;
+	animation-name: shake;
+	animation-timing-function: ease-in-out;
+	/* Paused while hidden so an invisible bubble never costs a per-frame
+	   backdrop-filter re-composite. JS flips this to running when shown. */
+	animation-play-state: paused;
+	color: var(--link);
+	line-height: 1.45;
+	transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
 }
-@media (max-width:768px) {
-	.waifu {
-	display:none
-}
-}.waifu-tips {
-	opacity:0;
-	width:250px;
-	min-height:50px;
-	margin:-20px 20px;
-	padding:8px 12px;
-	border:1px solid var(--card-border);
-	border-radius:14px;
-	background-color:var(--card);
-	backdrop-filter:blur(10px);
-	-webkit-backdrop-filter:blur(10px);
-	box-shadow:var(--shadow);
-	font-size:12.5px;
-	text-overflow:ellipsis;
-	overflow:hidden;
-	position:absolute;
-	animation-delay:5s;
-	animation-duration:50s;
-	animation-iteration-count:infinite;
-	animation-name:shake;
-	animation-timing-function:ease-in-out;
-	color:var(--link);
-	line-height:1.45;
-}
+
 .waifu-tool {
-	display:none;
-	color:var(--muted);
-	top:50px;
-	right:10px;
-	font-size:14px;
-	position:absolute
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2px;
+	opacity: 0;
+	pointer-events: none;
+	color: var(--muted);
+	top: 36px;
+	right: 10px;
+	font-size: 14px;
+	position: absolute;
+	z-index: 5;
+	transition: opacity .18s ease;
 }
+
 .waifu:hover .waifu-tool {
-	display:block
+	opacity: 1;
+	pointer-events: auto;
 }
+
 .waifu-tool span {
-	display:block;
-	cursor:pointer;
-	color:var(--muted);
-	line-height:24px;
-	transition:.2s
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 24px;
+	height: 24px;
+	cursor: pointer;
+	color: var(--muted);
+	line-height: 24px;
+	transition: .2s;
 }
+
 .waifu-tool span:hover {
-	color:var(--text)
+	color: var(--text);
 }
+
 .waifu #live2d {
-	position:relative
+	display: block;
+	position: relative;
+	z-index: 1;
+	pointer-events: auto;
 }
+
+.waifu .waifu-fallback {
+	display: none;
+	position: relative;
+	z-index: 1;
+	width: 280px;
+	height: 250px;
+	object-fit: contain;
+	object-position: left bottom;
+	pointer-events: none;
+	user-select: none;
+	-webkit-user-select: none;
+}
+
 .waifu #live2d:hover {
-	cursor:-webkit-grab
+	cursor: -webkit-grab;
 }
+
 .waifu #live2d:active {
-	cursor:-webkit-grabbing
+	cursor: -webkit-grabbing;
+}
+
+@media (max-width: 768px) {
+	.waifu {
+		display: none;
+	}
 }
 @keyframes shake {
 	2% {

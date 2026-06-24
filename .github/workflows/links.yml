@@ -1,0 +1,21 @@
+name: links
+
+# Weekly external-link rot check (and on-demand). Not run on PRs: external
+# services intermittently rate-limit/bot-block, which would create false
+# failures on day-to-day pushes. A genuine dead link (404/410) here emails the
+# repo owner; bot-blocked social sites (403/429/999) are tolerated.
+on:
+  schedule:
+    - cron: '0 6 * * 1'   # Mondays 06:00 UTC
+  workflow_dispatch:
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check links (local + external)
+        run: node test/links.mjs --external

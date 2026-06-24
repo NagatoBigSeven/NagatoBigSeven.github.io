@@ -1,5 +1,7 @@
 # macOS metadata
 .DS_Store
 
-# Local private materials
+# Local-only private materials (transcripts, acceptance letters, certificates,
+# CV sources, etc.). NEVER commit these — do not `git add -f materials/`.
+# The public CV intentionally lives at assets/CV_Zongmin.pdf instead.
 materials/

@@ -1,0 +1,41 @@
+name: smoke
+
+# Run the homepage smoke/regression test on every PR (and on pushes to main),
+# so a regression like the Live2D loadlive2d X-arg crash can't be merged.
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+# Newer pushes to the same branch cancel older in-progress runs.
+concurrency:
+  group: smoke-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Tool versions
+        run: |
+          node --version
+          python3 --version
+          google-chrome --version
+
+      - name: Link / asset integrity (local, strict)
+        run: node test/links.mjs
+
+      - name: feed.xml is generated from data (not stale)
+        run: node tools/build-feed.mjs --check
+
+      - name: Run smoke test
+        env:
+          # Google Chrome is preinstalled on ubuntu-latest runners.
+          CHROME: google-chrome
+        run: node test/smoke.mjs
