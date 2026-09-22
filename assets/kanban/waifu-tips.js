@@ -1201,7 +1201,7 @@ Available commands:
 ` : `
 Zongmin Zhang is a senior CS undergraduate at HKUST (minor in Chemistry).
 Research Interests: AI for Science, AI for Chemistry, Autonomous Scientific Discovery, Multi-Agent Systems, Large Language Models.
-Lab: AI4PhysSci Lab (Supervisor: Prof. Sherry Lixue Cheng).
+Lab: AI4PhysSci Lab (Supervisor: Prof. Lixue Cheng).
 `);
     } else if (command === 'cv') {
         responseLine.textContent = isZh ? "正在新标签页中打开张宗民的简历..." : "Opening Zongmin Zhang's CV in a new tab...";

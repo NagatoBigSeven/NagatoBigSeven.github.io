@@ -60,13 +60,11 @@ CHROME="/path/to/chrome" PORT=8799 CDP_PORT=9334 node test/smoke.mjs
 - **Generated `feed.xml`:** `node tools/build-feed.mjs` regenerates the Atom
   feed from `data/content.js`; `--check` (run in CI + the pre-push hook) fails
   if it has drifted.
-- **Citation counts:** `node tools/fetch-citations.mjs` (run weekly by the
-  `citations` workflow) writes `data/citations.json` from Semantic Scholar; the
-  page shows a "Cited by N" badge when a count exists. Anonymous Semantic Scholar
-  access is heavily rate-limited — for reliable refreshes add a repo secret
-  `S2_API_KEY` (free key: <https://www.semanticscholar.org/product/api>). Without
-  it the job still runs, degrades gracefully (keeps prior values), and prints a
-  hint.
+- **Citation counts:** `data/citations.json` is a manually verified Google Scholar
+  snapshot with source profile and verification date. Google Scholar has no official
+  citation-count API; do not replace it with Semantic Scholar counts. The
+  page shows a "Cited by N" badge when a positive count exists. Update the snapshot
+  only from directly observed Google Scholar profile evidence.
 - **Share card:** `node tools/build-og.mjs` renders `assets/og-card.png`
   (1200×630 OG/Twitter image) from your name + tagline + photo via headless
   Chrome; re-run after changing those and commit the PNG.

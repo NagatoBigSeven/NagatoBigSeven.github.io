@@ -622,12 +622,18 @@ if (window.innerWidth > 768) {
   }, { once: true });
 })();
 
-// 6. Sticky Navigation — add scrolled class on scroll
+// 6. Sticky Navigation — style on scroll and get out of the way when idle.
 (function () {
   var nav = document.getElementById('top-nav');
   if (!nav) return;
+
   var scrolled = false;
-  window.addEventListener('scroll', function () {
+  var idleTimer = null;
+  var idleDelay = 4000;
+  var lastActivity = Date.now();
+  var pointerOverNav = false;
+
+  function syncScrolledState() {
     if (window.scrollY > 60 && !scrolled) {
       nav.classList.add('scrolled');
       scrolled = true;
@@ -635,7 +641,68 @@ if (window.innerWidth > 768) {
       nav.classList.remove('scrolled');
       scrolled = false;
     }
+  }
+
+  function showNav() {
+    nav.classList.remove('nav-idle-hidden');
+  }
+
+  function scheduleIdleCheck() {
+    if (idleTimer !== null) return;
+    var remaining = Math.max(0, idleDelay - (Date.now() - lastActivity));
+    idleTimer = setTimeout(function checkIdle() {
+      idleTimer = null;
+      remaining = idleDelay - (Date.now() - lastActivity);
+      if (remaining > 0) {
+        scheduleIdleCheck();
+        return;
+      }
+      if (pointerOverNav || nav.contains(document.activeElement)) return;
+      nav.classList.add('nav-idle-hidden');
+    }, remaining);
+  }
+
+  function noteActivity() {
+    lastActivity = Date.now();
+    showNav();
+    scheduleIdleCheck();
+  }
+
+  window.addEventListener('scroll', function () {
+    syncScrolledState();
+    noteActivity();
   }, { passive: true });
+
+  ['pointermove', 'pointerdown', 'touchstart', 'wheel'].forEach(function (eventName) {
+    window.addEventListener(eventName, noteActivity, { passive: true });
+  });
+  window.addEventListener('keydown', noteActivity);
+
+  nav.addEventListener('pointerenter', function () {
+    pointerOverNav = true;
+    showNav();
+  });
+  nav.addEventListener('pointerleave', function () {
+    pointerOverNav = false;
+    noteActivity();
+  });
+  nav.addEventListener('focusin', function () {
+    lastActivity = Date.now();
+    showNav();
+  });
+  nav.addEventListener('focusout', function () {
+    requestAnimationFrame(noteActivity);
+  });
+
+  document.addEventListener('visibilitychange', function () {
+    if (!document.hidden) noteActivity();
+  });
+  window.addEventListener('pagehide', function () {
+    if (idleTimer !== null) clearTimeout(idleTimer);
+  }, { once: true });
+
+  syncScrolledState();
+  noteActivity();
 })();
 
 // 7. Back-to-Top Button
@@ -746,20 +813,25 @@ if (window.innerWidth > 768) {
     var pre = box && box.querySelector('.bibtex-text');
     if (!pre) return;
     var bibtex = pre.textContent || '';
-    var original = btn.textContent;
+    var label = btn.querySelector('.bibtex-copy-label');
+    var original = label ? label.textContent : btn.textContent;
     copyTextToClipboard(bibtex).then(function () {
-      btn.textContent = '✓ ' + getLocalizedText('bibtex.copied', 'Copied!');
+      if (label) label.textContent = getLocalizedText('bibtex.copied', 'Copied!');
+      else btn.textContent = getLocalizedText('bibtex.copied', 'Copied!');
       btn.classList.add('copied');
       showBibtexToast();
       setTimeout(function () {
-        btn.textContent = original;
+        if (label) label.textContent = original;
+        else btn.textContent = original;
         btn.classList.remove('copied');
       }, 2000);
     }).catch(function () {
-      btn.textContent = getLocalizedText('bibtex.failed', 'Copy failed');
+      if (label) label.textContent = getLocalizedText('bibtex.failed', 'Copy failed');
+      else btn.textContent = getLocalizedText('bibtex.failed', 'Copy failed');
       showBibtexToast('bibtex.toastFailed');
       setTimeout(function () {
-        btn.textContent = original;
+        if (label) label.textContent = original;
+        else btn.textContent = original;
       }, 2000);
     });
   });
@@ -788,8 +860,8 @@ if (window.innerWidth > 768) {
   }
   function t(en, zh, lang) { return lang === 'zh' ? zh : en; }
 
-  // Citation counts: a static map { arxivId: count } loaded from
-  // data/citations.json (generated server-side by tools/fetch-citations.mjs).
+  // Citation counts: a manually verified Google Scholar snapshot loaded from
+  // data/citations.json. Google Scholar provides no official citation-count API.
   var citationMap = {};
   function arxivIdOf(p) {
     var href = (p.links && p.links[0] && p.links[0].href) || '';
@@ -797,8 +869,11 @@ if (window.innerWidth > 768) {
     return m ? m[1] : '';
   }
 
-  var BIBTEX_SVG =
-    '<svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">' +
+  var BIBTEX_TOGGLE_SVG =
+    '<svg class="bibtex-toggle-icon" viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+    '<polyline points="6 9 12 15 18 9"></polyline></svg>';
+  var BIBTEX_COPY_SVG =
+    '<svg class="bibtex-copy-icon" viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
     '<rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>' +
     '<path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
 
@@ -826,9 +901,9 @@ if (window.innerWidth > 768) {
         return '<a class="mini-link" href="' + attr(l.href) + '" target="_blank" rel="noopener noreferrer">' + esc(l.label) + '</a>';
       }).join('\n');
       var bib = p.bibtex
-        ? '<details class="bibtex"><summary class="bibtex-summary">' + BIBTEX_SVG + '<span>BibTeX</span></summary>' +
+        ? '<details class="bibtex"><summary class="bibtex-summary"><span>BibTeX</span>' + BIBTEX_TOGGLE_SVG + '</summary>' +
             '<div class="bibtex-body"><pre class="bibtex-text">' + esc(p.bibtex) + '</pre>' +
-            '<button class="bibtex-copy" type="button">' + t('Copy', '复制', lang) + '</button></div></details>'
+            '<button class="bibtex-copy" type="button">' + BIBTEX_COPY_SVG + '<span class="bibtex-copy-label">' + t('Copy', '复制', lang) + '</span></button></div></details>'
         : '';
       var cites = citationMap[arxivIdOf(p)];
       var cite = (cites && cites > 0)
@@ -898,17 +973,27 @@ if (window.innerWidth > 768) {
   function logoImg(schoolKey) {
     var s = (window.SCHOOLS || {})[schoolKey];
     if (!s) return '';
-    return '<img class="school-logo ' + attr(s.cls) + '" src="' + attr(s.logo) + '" alt="' + attr(s.alt) + '" loading="lazy">';
+    return '<img class="school-logo ' + attr(s.cls) + '" src="' + attr(s.logo) + '" alt="' + attr(s.alt) + '" decoding="async">';
   }
   function timelineItems(arr, lang) {
     return (arr || []).map(function (it) {
-      return '<div class="timeline-item">' + logoImg(it.school) +
+      return '<div class="timeline-item' + (it.school ? ' timeline-item-' + attr(it.school) : ' timeline-item-no-logo') + '">' + logoImg(it.school) +
         '<div><div class="timeline-time">' + esc(pick(it.date, lang)) + '</div>' +
         '<div class="timeline-title">' + esc(pick(it.title, lang)) + '</div></div></div>';
     }).join('\n');
   }
-  function awardChips(arr, lang) {
-    return (arr || []).map(function (it) { return '<span class="award-chip">' + esc(pick(it, lang)) + '</span>'; }).join('\n');
+  function honorGroups(groups, lang) {
+    return (groups || []).map(function (group) {
+      var items = (group.items || []).map(function (item) {
+        var date = pick(item.date, lang);
+        var text = pick(item.text, lang);
+        return '<div class="honor-item' + (!text ? ' honor-item-date-only' : '') + '">' +
+          (date ? '<span class="honor-date">' + esc(date) + '</span>' : '') +
+          (text ? '<span class="honor-text">' + esc(text) + '</span>' : '') + '</div>';
+      }).join('\n');
+      return '<section class="honor-group"><h4 class="honor-group-title">' + esc(pick(group.title, lang)) +
+        '</h4><div class="honor-items">' + items + '</div></section>';
+    }).join('\n');
   }
   function listItems(arr, lang) {
     return (arr || []).map(function (it) {
@@ -932,10 +1017,11 @@ if (window.innerWidth > 768) {
   function renderCV(lang) {
     setHTML('edu-timeline', timelineItems(window.EDUCATION, lang));
     setHTML('research-timeline', timelineItems(window.RESEARCH, lang));
+    setHTML('industry-timeline', timelineItems(window.INDUSTRY, lang));
     var h = window.HONORS || {};
-    setHTML('scholarships-list', awardChips(h.scholarships, lang));
-    setHTML('deans-list', awardChips(h.honors, lang));
-    setHTML('awards-list', awardChips(h.awards, lang));
+    setHTML('scholarships-list', honorGroups(h.scholarships, lang));
+    setHTML('deans-list', honorGroups(h.honors, lang));
+    setHTML('awards-list', honorGroups(h.awards, lang));
     var a = window.ACTIVITIES || {};
     setHTML('leadership-list', listItems(a.leadership, lang));
     setHTML('teaching-list', listItems(a.teaching, lang));

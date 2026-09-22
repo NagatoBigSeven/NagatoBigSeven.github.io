@@ -93,7 +93,7 @@ const require = createRequire(import.meta.url);
 global.window = {};
 require(join(ROOT, 'data/content.js'));
 [
-  'TAGS', 'PUBLICATIONS', 'NEWS', 'SCHOOLS', 'EDUCATION', 'RESEARCH',
+  'TAGS', 'PUBLICATIONS', 'NEWS', 'SCHOOLS', 'EDUCATION', 'RESEARCH', 'INDUSTRY',
   'HONORS', 'ACTIVITIES', 'PROJECTS', 'COLLABORATORS'
 ].forEach((key) => walkDataRefs(global.window[key], `data/content.js:${key}`));
 
