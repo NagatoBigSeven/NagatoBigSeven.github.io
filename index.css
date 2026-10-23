@@ -908,6 +908,23 @@ a:hover {
   font-family: 'Outfit', sans-serif;
 }
 
+/* Manuscripts in preparation */
+.manuscripts-section {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.manuscript-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.manuscript-item + .manuscript-item {
+  margin-top: 18px;
+}
+
 /* Projects Grid */
 .project-grid {
   display: grid;
@@ -2633,6 +2650,7 @@ html.effects-lite .effects-toggle-btn .effects-full-icon {
   }
 
   .publication-card,
+  .manuscript-item,
   .timeline-item,
   .note-card,
   .info-panel,

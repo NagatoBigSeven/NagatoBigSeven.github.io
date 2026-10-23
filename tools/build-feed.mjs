@@ -29,20 +29,20 @@ const esc = (s) => String(s == null ? '' : s)
 const pubs = PUBLICATIONS.slice().sort((a, b) =>
   String(b.date || b.year).localeCompare(String(a.date || a.year)));
 
-const updated = (pubs[0] && (pubs[0].date || pubs[0].year + '-01-01')) || '2026-01-01';
+const updated = pubs.map((p) => p.updated || p.date || p.year + '-01-01')
+  .sort().at(-1) || '2026-01-01';
 
 const entries = pubs.map((p) => {
   const href = (p.links && p.links[0] && p.links[0].href) || SITE;
   const date = p.date || (p.year + '-01-01');
-  const summary = [p.highlight && p.highlight.en, p.venue && p.venue.en]
-    .filter(Boolean).join(' ');
+  const summary = p.venue && p.venue.en;
   return [
     '  <entry>',
     '    <title>' + esc(p.title.en) + '</title>',
     '    <link href="' + esc(href) + '" rel="alternate" type="text/html"/>',
     '    <id>' + esc(href) + '</id>',
     '    <published>' + date + 'T00:00:00Z</published>',
-    '    <updated>' + date + 'T00:00:00Z</updated>',
+    '    <updated>' + (p.updated || date) + 'T00:00:00Z</updated>',
     '    <summary>' + esc(summary) + '</summary>',
     '    <category term="publication"/>',
     '  </entry>',

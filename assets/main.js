@@ -918,7 +918,6 @@ if (window.innerWidth > 768) {
         '<div>' +
           '<div class="item-title">' + esc(pick(p.title, lang)) + '</div>' +
           '<div class="authors">' + (p.authorsHtml || '') + '</div>' +
-          '<div class="highlight"><span class="highlight-label">' + t('Highlight:', '亮点:', lang) + '</span> <span>' + esc(pick(p.highlight, lang)) + '</span></div>' +
           '<div class="muted">' + esc(pick(p.venue, lang)) + '</div>' +
           '<div class="mini-links">' + links + (cite ? '\n' + cite : '') + '</div>' +
           (bib || '') +
@@ -946,6 +945,18 @@ if (window.innerWidth > 768) {
       }
     }
     applyFilter();
+  }
+
+  function renderManuscripts(lang) {
+    var list = document.getElementById('manuscript-list');
+    if (!list) return;
+    list.innerHTML = (window.MANUSCRIPTS || []).map(function (m) {
+      return '<li class="manuscript-item">' +
+        '<div class="item-title">' + esc(pick(m.title, lang)) + '</div>' +
+        '<div class="authors">' + (m.authorsHtml || '') + '</div>' +
+        '<div class="muted">' + esc(pick(m.status, lang)) + '</div>' +
+      '</li>';
+    }).join('\n');
   }
 
   function renderNews(lang) {
@@ -1057,6 +1068,7 @@ if (window.innerWidth > 768) {
     lang = lang || getLang();
     renderNews(lang);
     renderPublications(lang);
+    renderManuscripts(lang);
     renderCV(lang);
   }
   window.renderSiteContent = renderSiteContent;
@@ -1091,11 +1103,6 @@ if (window.innerWidth > 768) {
 
   // Per-paper ScholarlyArticle JSON-LD (helps Google / Scholar link these works
   // to the author). Injected once; language-independent (canonical = English).
-  function parseAuthors(html) {
-    return String(html || '').replace(/<[^>]+>/g, '').split(/,| and /)
-      .map(function (s) { return s.trim(); }).filter(Boolean)
-      .map(function (name) { return { '@type': 'Person', name: name }; });
-  }
   function injectPubJsonLd() {
     if (document.getElementById('pubs-jsonld')) return;
     var pubs = window.PUBLICATIONS || [];
@@ -1107,7 +1114,7 @@ if (window.innerWidth > 768) {
         '@type': 'ScholarlyArticle',
         name: p.title.en,
         headline: p.title.en,
-        author: parseAuthors(p.authorsHtml),
+        author: p.authors.map(function (name) { return { '@type': 'Person', name: name }; }),
         datePublished: p.date || String(p.year || ''),
         url: href,
         sameAs: href,
@@ -1304,7 +1311,7 @@ if (window.innerWidth > 768) {
   }
 
   // Load i18n data
-  fetch('i18n.json')
+  fetch('i18n.json?v=20261024-1')
     .then(function (r) { return r.json(); })
     .then(function (data) {
       i18nData = data;

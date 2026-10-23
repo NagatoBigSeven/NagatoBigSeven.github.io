@@ -28,6 +28,7 @@ window.PUBLICATIONS = [
   {
     id: 'adsmind',
     date: '2026-06-18',
+    updated: '2026-10-24',
     year: 2026,
     type: 'preprint',
     cover: { img: 'assets/adsmind-logo.webp', alt: 'AdsMind logo' },
@@ -35,14 +36,21 @@ window.PUBLICATIONS = [
       en: 'AdsMind: A Physics-Grounded Multi-Agent System for Self-Correcting Discovery of Adsorption Configurations on Heterogeneous Catalyst Surfaces',
       zh: 'AdsMind：用于异相催化剂表面吸附构型的自校正发现的基于物理的多智能体系统'
     },
+    authors: [
+      "Zongmin Zhang",
+      "Yuyang Lou",
+      "Bowen Zhang",
+      "Junwu Chen",
+      "Ryo Kuroki",
+      "Xuan Vu Nguyen",
+      "Edvin Fako",
+      "Lixue Cheng",
+      "Philippe Schwaller"
+    ],
     authorsHtml: '<span class="me">Zongmin Zhang</span>, Yuyang Lou, Bowen Zhang, Junwu Chen, Ryo Kuroki, Xuan Vu Nguyen, Edvin Fako, Lixue Cheng, and Philippe Schwaller',
-    highlight: {
-      en: 'Led the implementation, benchmark design and cross-backend evaluation of AdsMind, a closed-loop, physics-grounded multi-agent system for autonomous adsorption-configuration discovery on heterogeneous catalyst surfaces.',
-      zh: '主导了 AdsMind 的实现、基准设计及跨后端评估——一个用于异相催化剂表面吸附构型的自主发现的闭环的、基于物理的多智能体系统。'
-    },
     venue: {
-      en: 'arXiv preprint arXiv:2606.19152, 2026. Passed editorial screening at Machine Learning: Science and Technology and is now under external peer review.',
-      zh: 'arXiv 预印本 arXiv:2606.19152, 2026。已通过 Machine Learning: Science and Technology 编辑初审，现已进入外部同行评审。'
+      en: 'arXiv preprint arXiv:2606.19152, 2026. Submitted to Machine Learning: Science and Technology (Under Review).',
+      zh: 'arXiv 预印本 arXiv:2606.19152, 2026。已投稿至 Machine Learning: Science and Technology（审稿中）。'
     },
     links: [{ label: 'arXiv', href: 'https://arxiv.org/abs/2606.19152' }],
     tags: ['adsorption', 'multiAgent', 'heterogeneousCatalysis'],
@@ -51,6 +59,7 @@ window.PUBLICATIONS = [
   {
     id: 'catdt',
     date: '2026-06-04',
+    updated: '2026-10-24',
     year: 2026,
     type: 'preprint',
     cover: { text: 'CatDT' },
@@ -58,14 +67,15 @@ window.PUBLICATIONS = [
       en: 'Autonomous Heterogeneous Catalyst Discovery with a Self-Evolving Multi-Agent Digital Twin',
       zh: '基于自进化多智能体数字孪生的自主异相催化剂发现'
     },
+    authors: [
+      "Zhilong Song",
+      "Zongmin Zhang",
+      "Lixue Cheng"
+    ],
     authorsHtml: 'Zhilong Song, <span class="me">Zongmin Zhang</span>, and Lixue Cheng',
-    highlight: {
-      en: 'Conducted Codex-based ablation experiments and contributed to the evaluation of CatDT, a self-evolving multi-agent digital-twin framework for autonomous heterogeneous catalyst discovery.',
-      zh: '执行了基于 Codex 的消融实验，并参与了 CatDT 的评估——一个用于自主异相催化剂发现的自进化的多智能体数字孪生框架。'
-    },
     venue: {
-      en: 'arXiv preprint arXiv:2606.05050, 2026. First-round external peer-review reports received from Nature Communications. Major revision requested.',
-      zh: 'arXiv 预印本 arXiv:2606.05050, 2026。已收到 Nature Communications 第一轮外部同行评审意见，审稿决定为大修。'
+      en: 'arXiv preprint arXiv:2606.05050, 2026. Submitted to Nature Communications (Major Revision Underway).',
+      zh: 'arXiv 预印本 arXiv:2606.05050, 2026。已投稿至 Nature Communications（大修进行中）。'
     },
     links: [{ label: 'arXiv', href: 'https://arxiv.org/abs/2606.05050' }],
     tags: ['heterogeneousCatalysis', 'digitalTwin', 'multiAgent'],
@@ -74,6 +84,7 @@ window.PUBLICATIONS = [
   {
     id: 'llm-hackathon',
     date: '2026-05-05',
+    updated: '2026-10-24',
     year: 2026,
     type: 'preprint',
     cover: { img: 'assets/logo-llm-hackathon.webp', alt: 'LLM hackathon logo' },
@@ -81,24 +92,417 @@ window.PUBLICATIONS = [
       en: 'From Knowledge to Action: Outcomes of the 2025 Large Language Model (LLM) Hackathon for Applications in Materials Science and Chemistry',
       zh: '从知识到行动：2025年材料科学与化学应用大语言模型 (LLM) 黑客松成果'
     },
+    // Canonical author order from https://arxiv.org/abs/2605.03205 (v1).
+    authors: [
+      "Aritra Roy",
+      "Kevin Shen",
+      "Andrew MacBride",
+      "Awwal Oladipupo",
+      "Mudassra Taskeen",
+      "Wojtek Treyde",
+      "Ruaa A. E. A. Abakar",
+      "Ahmad D. Abbas",
+      "Elsayed Abdelfatah",
+      "Abbas A. Abdullahi",
+      "Seham S. Abyah",
+      "Chahd Rahyl Adjmi",
+      "Fariha Agbere",
+      "Savyasanchi Aggarwal",
+      "Muhammad Ahmed",
+      "Tasnim Ahmed",
+      "Motasem Ajlouni",
+      "Mattias Akke",
+      "Hussein AlAdwan",
+      "Anwaar S. Alazani",
+      "Zahra A. Alharbi",
+      "Wajd A. Aljulyhi",
+      "Mohammed A. AlKubaish",
+      "Fatima A. Almahri",
+      "Sayed A. Almohri",
+      "David Obeh Alobo",
+      "Mohammed Alouni",
+      "Azizah S. Alqahtani",
+      "Omar Alsaigh",
+      "Husain Althagafi",
+      "Md. Aqib Aman",
+      "Lena Ara",
+      "Arifin",
+      "Ignacio Arretche",
+      "Abdulaziz Ashy",
+      "Syeda A. Asim",
+      "Amro Aswad",
+      "Adeel Atta",
+      "Sören Auer",
+      "Abdullah al Azmi",
+      "Toheeb Balogun",
+      "Suvo Banik",
+      "Viktoriia Baibakova",
+      "Shakira A. Baksh",
+      "Neus G. Bastús",
+      "Christina J. Bayard",
+      "Adib Bazgir",
+      "Louis Beal",
+      "Lejla Biberić",
+      "Wahid Billah",
+      "Ankita Biswas",
+      "Joshua Bocarsly",
+      "Montassar T. Bouzidi",
+      "Esma B. Boydas",
+      "Youssef Briki",
+      "Cailin Buchanan",
+      "Mauricio Cafiero",
+      "Damien Caliste",
+      "Yi Cao",
+      "Rafael E. Castañeda",
+      "Sruthy K. Chandy",
+      "Benjamin Charmes",
+      "Shayantan Chaudhuri",
+      "Yiming Chen",
+      "Alexander Chen",
+      "Jieneng Chen",
+      "Min-Hsueh Chiu",
+      "Defne Circi",
+      "Cinthya H. Contreras",
+      "Yoann Cure",
+      "Nathan Daelman",
+      "Roshini Dantuluri",
+      "Thomas Davy",
+      "William Dawson",
+      "Leonid Didukh",
+      "Rui Ding",
+      "Aminu R. Doguwa",
+      "Claudia Draxl",
+      "Sathya Edamadaka",
+      "Oulaya Elargab",
+      "Christina Ertural",
+      "Matthew L. Evans",
+      "Edvin Fako",
+      "Hossam Farag",
+      "Nur A. Fathurrahman",
+      "Merve Fedai",
+      "Rodrigo P. Ferreira",
+      "Giuseppe Fisicaro",
+      "Thomas Frank",
+      "Sasi K. Gaddipati",
+      "Abhijeet Gangan",
+      "Jennifer Garland",
+      "James Garrick",
+      "Luigi Genovese",
+      "Maryam Ghadrdran",
+      "Sandip Giri",
+      "Maxime Goulet",
+      "Jeremy Goumaz",
+      "Sara U. Gracia",
+      "Jacob Graham",
+      "Gabriel Graves",
+      "Kevin P. Greenman",
+      "Tim Greitemeier",
+      "Cameron Gruich",
+      "Sophie Gu",
+      "Salomé Guilbert",
+      "Hans Gundlach",
+      "Muriel F. Gusta",
+      "Mourad El Haddaoui",
+      "Alexander J. Haibel",
+      "Anubhab Haldar",
+      "Vehaan Handa",
+      "Hassan Harb",
+      "Nathan D. Harms",
+      "Abdullah Al Hasan",
+      "Abir Hassan",
+      "Qiyao He",
+      "Andrés Henao-Aristizábal",
+      "Bram Hoex",
+      "Sungil Hong",
+      "Alexander J. Horvath",
+      "Md. Shaib Hossain",
+      "Yanqi Huang",
+      "Yuqing Huang",
+      "Kostiantyn Hubaiev",
+      "Donald Intal",
+      "Katherine Inzani",
+      "Kevin Ishimwe",
+      "Tugba Isik",
+      "Gopal R. Iyer",
+      "Katharina Jager",
+      "Jan Janssen",
+      "Hyewon Jeong",
+      "Michael Jirasek",
+      "Tyler R. Josephson",
+      "Nisarg Joshi",
+      "Yassir Ben Kacem",
+      "Remya A. M. Kalapurakal",
+      "Rakesh R. Kamath",
+      "Sugan Kanagasenthinathan",
+      "Dohun Kang",
+      "Jason Kantorow",
+      "Kübra Kaygisiz",
+      "Murat Keceli",
+      "Farhana Keya",
+      "Muhammad U. Khan",
+      "Sartaaj Takrim Khan",
+      "Hyungjun Kim",
+      "Alexander Kister",
+      "Sascha Klawohn",
+      "Collin Kovacs",
+      "Pranav Krishnan",
+      "Maurycy Kryzanowski",
+      "Ritesh Kumar",
+      "Suman Kumari",
+      "Gourav Kumbhojkar",
+      "Ryo Kuroki",
+      "Shashank Kushwaha",
+      "Magdalena Lederbauer",
+      "Jaejun Lee",
+      "Seunghan Lee",
+      "Jeonghwan Lee",
+      "Bingcan Li",
+      "Calvin Li",
+      "Zhanzhao Li",
+      "Shi Li",
+      "Shicheng Li",
+      "Chengyan Liu",
+      "Hao Liu",
+      "Tung Yan Liu",
+      "Yutong Liu",
+      "Lucia Vina-Lopez",
+      "Chayaphol Lortaraparsert",
+      "Andre K.Y. Low",
+      "Saffron Luxford",
+      "Carlos Madariaga",
+      "Rishikesh Magar",
+      "Piyush R. Maharana",
+      "Rahul Mallela",
+      "Shoaib Mahmud",
+      "Natesan Mani",
+      "Umair Mansoor",
+      "Omar B. Mansour",
+      "Cassandra Masschelein",
+      "Kinga O. Mastej",
+      "Ankit Mathanker",
+      "Jeffrey Meng",
+      "Omran Mezghani",
+      "Yidong Ming",
+      "Rishav Mitra",
+      "Michail Mitsakis",
+      "Matthew Miyagishima",
+      "Ravikumar Mohan",
+      "Naveen R. Mohanraj",
+      "Trupti Mohanty",
+      "Bernadette Mohr",
+      "Francisco A. Molina-Bakhos",
+      "Jeremy Monat",
+      "Seyed Mohamad Moosavi",
+      "Shayan Mousavi",
+      "Arman Moussavi",
+      "Rubel Mozumber",
+      "Muhammad J. Mufti",
+      "Diyana Muhammed",
+      "Ram Munde",
+      "Mrigi Munjal",
+      "José A. Márquez",
+      "Shankha Nag",
+      "Giacomo Nagaro",
+      "Juno Nam",
+      "Jose M. Napoles-Duarte",
+      "Ry Nduma",
+      "Xuan-Vu Nguyen",
+      "Ebrahim Norouzi",
+      "Oluwatosin Ohiro",
+      "Ryotaro Okabe",
+      "Viejay Ordillo",
+      "Shuichiro Ozawa",
+      "Sebastian Pagel",
+      "Daniel Palmer",
+      "Angela Pan",
+      "Akash Pandey",
+      "Vivek Pandit",
+      "Prakul Pandit",
+      "Chiku Parida",
+      "Jaehee Park",
+      "Hyunsoo Park",
+      "Hemangi Patel",
+      "Shakul Pathak",
+      "Taradutt Pattnaik",
+      "Elena Patyukova",
+      "Noah Paulson",
+      "Deepak S. Pendyala",
+      "Erick S. Pepek",
+      "Martin H. Petersen",
+      "Thang D. Pham",
+      "Aniket Phutane",
+      "Sabila K. Pinky",
+      "Étienne Polack",
+      "Alison Polasik",
+      "Maria Politi",
+      "Tim Pongratz",
+      "Akhila Ponugoti",
+      "Fabio Priante",
+      "Thomas Michael Pruyn",
+      "Sai S. Puppala",
+      "Mohammad A. Qazi",
+      "Heike Quosdorf",
+      "Gollam Rabby",
+      "Mohammad J. Raei",
+      "Md. Habibur Rahman",
+      "A.B.M. Ashikur Rahman",
+      "Subhashree Rajasekaran",
+      "Tawfiqur Rakib",
+      "Hemanth N. Ramesh",
+      "Vrushali Ranadive",
+      "Karnamohit Ranka",
+      "Bojana Rankovic",
+      "Adwaith Ravichandran",
+      "Ilija Rašović",
+      "Sergei Rigin",
+      "Tatem Rios",
+      "Varun Rishi",
+      "Victor Naden Robinson",
+      "Lucas S. Rodrigues",
+      "Oswaldo Rodriguez",
+      "Mahule Roy",
+      "Diptendu Roy",
+      "Subhas Roy",
+      "Arokia Anto Royan M",
+      "Joseph F. Rudzinski",
+      "Muhammad Sabih",
+      "Subramanyam Sahoo",
+      "Srusti Bheem Sain",
+      "Thahira Saliya",
+      "Vignesh Sampath",
+      "Jesus Diaz Sanchez",
+      "Arthur S. S. Santos",
+      "Muliady Satria",
+      "Hasan M. Sayeed",
+      "Jörg Schaarschmidt",
+      "Philippe Schwaller",
+      "Nofit Segal",
+      "Abhishec Senthilvel",
+      "Sherjeel Shabih",
+      "Devanshu Shah",
+      "Faezeh Shahmoradi",
+      "Samiha Sharlin",
+      "Killian Sheriff",
+      "Qiuyu Shi",
+      "Abubakar D. Shuaibu",
+      "Ayesha Siddiqua",
+      "M.A. Shadab Siddiqui",
+      "Darian Smalley",
+      "Benjamin Smith",
+      "Taylor D. Sparks",
+      "Daniel T. Speckhard",
+      "Elena Stojanovska",
+      "Akshay Subramanian",
+      "Jiwon Sun",
+      "Yunkai Sun",
+      "Abdul W. Syed",
+      "Souvik Ta",
+      "Izumi Takahara",
+      "Kelly Tallau",
+      "Guannan Tang",
+      "Ans B. Tariq",
+      "Sui X. Tay",
+      "Nurlybek Temirbay",
+      "Surya P. Tiwari",
+      "Febin Tom",
+      "Tajah Trapier",
+      "Kasidet J. Trerayapiwat",
+      "Samanvya Tripathi",
+      "Hawra H. Tuhaifa",
+      "Mustafa Unal",
+      "Mohammad Uzair",
+      "Vallabh Vasudevan",
+      "Estefania Vazquez",
+      "Victor Venturi",
+      "Rahul Verma",
+      "Ashwini Verma",
+      "Alvaro Vazquez-Mayagoitia",
+      "Nicholas Wagner",
+      "Araki Wakiuchi",
+      "Hao Wan",
+      "Liaoyaqi Wang",
+      "Wolfgang Wenzel",
+      "Alexander Wieczorek",
+      "Sze H. Wong",
+      "Yue Wu",
+      "Tong Xie",
+      "Andrew Yi",
+      "Ziqi Yin",
+      "Jodie A. Yuwono",
+      "Nahed A. Zaid",
+      "Mohd Zaki",
+      "Shehtab Zaman",
+      "Maimuna U. Zarewa",
+      "Mahtab Zehtab",
+      "Baosen Zhang",
+      "Wenyu Zhang",
+      "Melody Zhang",
+      "Yangfan Zhang",
+      "Yuwen Zhang",
+      "Runze Zhang",
+      "Zongmin Zhang",
+      "Huanhuan Zhao",
+      "Yuanlong Bill Zheng",
+      "Ramzi Zidani",
+      "Xue Zong",
+      "Ian Foster",
+      "Ben Blaiszik"
+    ],
     authorsHtml: 'Aritra Roy et al. (including <span class="me">Zongmin Zhang</span>)',
-    highlight: {
-      en: 'Large-author community report on LLM-enabled scientific workflows from an international hackathon at the intersection of large language models, materials science, and chemistry.',
-      zh: '关于大语言模型赋能的科学工作流的大型社区报告，来自一场聚焦大语言模型、材料科学和化学交叉领域的国际黑客松。'
-    },
     venue: {
       en: 'arXiv preprint arXiv:2605.03205, 2026.',
       zh: 'arXiv 预印本 arXiv:2605.03205, 2026。'
     },
     links: [{ label: 'arXiv', href: 'https://arxiv.org/abs/2605.03205' }],
     tags: ['llm', 'aiAgent', 'materialsScience', 'chemistry'],
-    bibtex: '@article{roy2026knowledge,\n  title={From Knowledge to Action: Outcomes of the 2025 Large Language Model (LLM) Hackathon for Applications in Materials Science and Chemistry},\n  author={Roy, Aritra and others},\n  journal={arXiv preprint arXiv:2605.03205},\n  year={2026}\n}'
+    bibtex: "@misc{roy2026knowledge,\n  title = {From Knowledge to Action: Outcomes of the 2025 Large Language Model (LLM) Hackathon for Applications in Materials Science and Chemistry},\n  author = {Roy, Aritra and Shen, Kevin and MacBride, Andrew and Oladipupo, Awwal and Taskeen, Mudassra and Treyde, Wojtek and Abakar, Ruaa A. E. A. and Abbas, Ahmad D. and Abdelfatah, Elsayed and Abdullahi, Abbas A. and Abyah, Seham S. and Adjmi, Chahd Rahyl and Agbere, Fariha and Aggarwal, Savyasanchi and Ahmed, Muhammad and Ahmed, Tasnim and Ajlouni, Motasem and Akke, Mattias and AlAdwan, Hussein and Alazani, Anwaar S. and Alharbi, Zahra A. and Aljulyhi, Wajd A. and AlKubaish, Mohammed A. and Almahri, Fatima A. and Almohri, Sayed A. and Alobo, David Obeh and Alouni, Mohammed and Alqahtani, Azizah S. and Alsaigh, Omar and Althagafi, Husain and Aman, Md. Aqib and Ara, Lena and Arifin and Arretche, Ignacio and Ashy, Abdulaziz and Asim, Syeda A. and Aswad, Amro and Atta, Adeel and Auer, Sören and Azmi, Abdullah al and Balogun, Toheeb and Banik, Suvo and Baibakova, Viktoriia and Baksh, Shakira A. and Bastús, Neus G. and Bayard, Christina J. and Bazgir, Adib and Beal, Louis and Biberić, Lejla and Billah, Wahid and Biswas, Ankita and Bocarsly, Joshua and Bouzidi, Montassar T. and Boydas, Esma B. and Briki, Youssef and Buchanan, Cailin and Cafiero, Mauricio and Caliste, Damien and Cao, Yi and Castañeda, Rafael E. and Chandy, Sruthy K. and Charmes, Benjamin and Chaudhuri, Shayantan and Chen, Yiming and Chen, Alexander and Chen, Jieneng and Chiu, Min-Hsueh and Circi, Defne and Contreras, Cinthya H. and Cure, Yoann and Daelman, Nathan and Dantuluri, Roshini and Davy, Thomas and Dawson, William and Didukh, Leonid and Ding, Rui and Doguwa, Aminu R. and Draxl, Claudia and Edamadaka, Sathya and Elargab, Oulaya and Ertural, Christina and Evans, Matthew L. and Fako, Edvin and Farag, Hossam and Fathurrahman, Nur A. and Fedai, Merve and Ferreira, Rodrigo P. and Fisicaro, Giuseppe and Frank, Thomas and Gaddipati, Sasi K. and Gangan, Abhijeet and Garland, Jennifer and Garrick, James and Genovese, Luigi and Ghadrdran, Maryam and Giri, Sandip and Goulet, Maxime and Goumaz, Jeremy and Gracia, Sara U. and Graham, Jacob and Graves, Gabriel and Greenman, Kevin P. and Greitemeier, Tim and Gruich, Cameron and Gu, Sophie and Guilbert, Salomé and Gundlach, Hans and Gusta, Muriel F. and Haddaoui, Mourad El and Haibel, Alexander J. and Haldar, Anubhab and Handa, Vehaan and Harb, Hassan and Harms, Nathan D. and Hasan, Abdullah Al and Hassan, Abir and He, Qiyao and Henao-Aristizábal, Andrés and Hoex, Bram and Hong, Sungil and Horvath, Alexander J. and Hossain, Md. Shaib and Huang, Yanqi and Huang, Yuqing and Hubaiev, Kostiantyn and Intal, Donald and Inzani, Katherine and Ishimwe, Kevin and Isik, Tugba and Iyer, Gopal R. and Jager, Katharina and Janssen, Jan and Jeong, Hyewon and Jirasek, Michael and Josephson, Tyler R. and Joshi, Nisarg and Kacem, Yassir Ben and Kalapurakal, Remya A. M. and Kamath, Rakesh R. and Kanagasenthinathan, Sugan and Kang, Dohun and Kantorow, Jason and Kaygisiz, Kübra and Keceli, Murat and Keya, Farhana and Khan, Muhammad U. and Khan, Sartaaj Takrim and Kim, Hyungjun and Kister, Alexander and Klawohn, Sascha and Kovacs, Collin and Krishnan, Pranav and Kryzanowski, Maurycy and Kumar, Ritesh and Kumari, Suman and Kumbhojkar, Gourav and Kuroki, Ryo and Kushwaha, Shashank and Lederbauer, Magdalena and Lee, Jaejun and Lee, Seunghan and Lee, Jeonghwan and Li, Bingcan and Li, Calvin and Li, Zhanzhao and Li, Shi and Li, Shicheng and Liu, Chengyan and Liu, Hao and Liu, Tung Yan and Liu, Yutong and Vina-Lopez, Lucia and Lortaraparsert, Chayaphol and Low, Andre K. Y. and Luxford, Saffron and Madariaga, Carlos and Magar, Rishikesh and Maharana, Piyush R. and Mallela, Rahul and Mahmud, Shoaib and Mani, Natesan and Mansoor, Umair and Mansour, Omar B. and Masschelein, Cassandra and Mastej, Kinga O. and Mathanker, Ankit and Meng, Jeffrey and Mezghani, Omran and Ming, Yidong and Mitra, Rishav and Mitsakis, Michail and Miyagishima, Matthew and Mohan, Ravikumar and Mohanraj, Naveen R. and Mohanty, Trupti and Mohr, Bernadette and Molina-Bakhos, Francisco A. and Monat, Jeremy and Moosavi, Seyed Mohamad and Mousavi, Shayan and Moussavi, Arman and Mozumber, Rubel and Mufti, Muhammad J. and Muhammed, Diyana and Munde, Ram and Munjal, Mrigi and Márquez, José A. and Nag, Shankha and Nagaro, Giacomo and Nam, Juno and Napoles-Duarte, Jose M. and Nduma, Ry and Nguyen, Xuan-Vu and Norouzi, Ebrahim and Ohiro, Oluwatosin and Okabe, Ryotaro and Ordillo, Viejay and Ozawa, Shuichiro and Pagel, Sebastian and Palmer, Daniel and Pan, Angela and Pandey, Akash and Pandit, Vivek and Pandit, Prakul and Parida, Chiku and Park, Jaehee and Park, Hyunsoo and Patel, Hemangi and Pathak, Shakul and Pattnaik, Taradutt and Patyukova, Elena and Paulson, Noah and Pendyala, Deepak S. and Pepek, Erick S. and Petersen, Martin H. and Pham, Thang D. and Phutane, Aniket and Pinky, Sabila K. and Polack, Étienne and Polasik, Alison and Politi, Maria and Pongratz, Tim and Ponugoti, Akhila and Priante, Fabio and Pruyn, Thomas Michael and Puppala, Sai S. and Qazi, Mohammad A. and Quosdorf, Heike and Rabby, Gollam and Raei, Mohammad J. and Rahman, Md. Habibur and Rahman, A. B. M. Ashikur and Rajasekaran, Subhashree and Rakib, Tawfiqur and Ramesh, Hemanth N. and Ranadive, Vrushali and Ranka, Karnamohit and Rankovic, Bojana and Ravichandran, Adwaith and Rašović, Ilija and Rigin, Sergei and Rios, Tatem and Rishi, Varun and Robinson, Victor Naden and Rodrigues, Lucas S. and Rodriguez, Oswaldo and Roy, Mahule and Roy, Diptendu and Roy, Subhas and M, Arokia Anto Royan and Rudzinski, Joseph F. and Sabih, Muhammad and Sahoo, Subramanyam and Sain, Srusti Bheem and Saliya, Thahira and Sampath, Vignesh and Sanchez, Jesus Diaz and Santos, Arthur S. S. and Satria, Muliady and Sayeed, Hasan M. and Schaarschmidt, Jörg and Schwaller, Philippe and Segal, Nofit and Senthilvel, Abhishec and Shabih, Sherjeel and Shah, Devanshu and Shahmoradi, Faezeh and Sharlin, Samiha and Sheriff, Killian and Shi, Qiuyu and Shuaibu, Abubakar D. and Siddiqua, Ayesha and Siddiqui, M. A. Shadab and Smalley, Darian and Smith, Benjamin and Sparks, Taylor D. and Speckhard, Daniel T. and Stojanovska, Elena and Subramanian, Akshay and Sun, Jiwon and Sun, Yunkai and Syed, Abdul W. and Ta, Souvik and Takahara, Izumi and Tallau, Kelly and Tang, Guannan and Tariq, Ans B. and Tay, Sui X. and Temirbay, Nurlybek and Tiwari, Surya P. and Tom, Febin and Trapier, Tajah and Trerayapiwat, Kasidet J. and Tripathi, Samanvya and Tuhaifa, Hawra H. and Unal, Mustafa and Uzair, Mohammad and Vasudevan, Vallabh and Vazquez, Estefania and Venturi, Victor and Verma, Rahul and Verma, Ashwini and Vazquez-Mayagoitia, Alvaro and Wagner, Nicholas and Wakiuchi, Araki and Wan, Hao and Wang, Liaoyaqi and Wenzel, Wolfgang and Wieczorek, Alexander and Wong, Sze H. and Wu, Yue and Xie, Tong and Yi, Andrew and Yin, Ziqi and Yuwono, Jodie A. and Zaid, Nahed A. and Zaki, Mohd and Zaman, Shehtab and Zarewa, Maimuna U. and Zehtab, Mahtab and Zhang, Baosen and Zhang, Wenyu and Zhang, Melody and Zhang, Yangfan and Zhang, Yuwen and Zhang, Runze and Zhang, Zongmin and Zhao, Huanhuan and Zheng, Yuanlong Bill and Zidani, Ramzi and Zong, Xue and Foster, Ian and Blaiszik, Ben},\n  year = {2026},\n  eprint = {2605.03205},\n  archivePrefix = {arXiv},\n  primaryClass = {cond-mat.mtrl-sci},\n  doi = {10.48550/arXiv.2605.03205},\n  url = {https://arxiv.org/abs/2605.03205}\n}"
+  }
+];
+
+/* Manuscripts in preparation, in CV order; separate from public preprints. */
+window.MANUSCRIPTS = [
+  {
+    id: 'alk-inhibitors',
+    year: 2026,
+    title: {
+      en: 'Bayesian Optimization–Assisted Human–Machine Collaborative Design of ALK L1196M/G1202R Inhibitors',
+      zh: '贝叶斯优化辅助的 ALK L1196M/G1202R 抑制剂人机协同设计'
+    },
+    authorsHtml: 'Yuqi Fang, <span class="me">Zongmin Zhang</span>, Lixue Cheng, Yong Huang',
+    status: { en: 'In preparation, 2026.', zh: '准备中，2026年。' }
+  },
+  {
+    id: 'sfmsafetylens',
+    year: 2026,
+    title: {
+      en: 'SFMSafetyLens: A Multi-Scale Diagnostic Framework for the Safety Spectrum of Scientific Foundation Models',
+      zh: 'SFMSafetyLens：科学基础模型安全谱的多尺度诊断框架'
+    },
+    authorsHtml: '<span class="me">Zongmin Zhang</span>, Jingtong Wu, Shaokang Li, Lixue Cheng',
+    status: { en: 'In preparation, 2026.', zh: '准备中，2026年。' }
+  },
+  {
+    id: 'chemtriage',
+    year: 2026,
+    title: {
+      en: 'ChemTriage: Matched Records Test How Language Models Turn Chemical Evidence into Decisions',
+      zh: 'ChemTriage：通过匹配记录检验语言模型如何将化学证据转化为决策'
+    },
+    authorsHtml: '<span class="me">Zongmin Zhang</span>, Kexiang Hao, Xinyi Liu, Lixue Cheng',
+    status: { en: 'In preparation, 2026.', zh: '准备中，2026年。' }
   }
 ];
 
 /* Newest first. First `newsFeaturedCount` show by default; rest behind "Show more". */
 window.NEWS_FEATURED_COUNT = 4;
 window.NEWS = [
+  {
+    date: { en: 'Oct 2026', zh: '2026年10月' },
+    html: {
+      en: 'Team Leader, <strong>Open Scientific Intelligence (OSI) Hackathon</strong> [Project: <a href="https://github.com/Nine-Three-Cattery/SciExchange" target="_blank" rel="noopener noreferrer">SciExchange</a>].',
+      zh: '担任<strong>Open Scientific Intelligence（OSI）黑客松</strong>队长，项目：<a href="https://github.com/Nine-Three-Cattery/SciExchange" target="_blank" rel="noopener noreferrer">SciExchange</a>。'
+    }
+  },
   {
     date: { en: 'Sep 1, 2026', zh: '2026年9月1日' },
     html: {
@@ -116,15 +520,15 @@ window.NEWS = [
   {
     date: { en: 'Jun 18, 2026', zh: '2026年6月18日' },
     html: {
-      en: 'Our paper <strong>AdsMind</strong> is now available on <a href="https://arxiv.org/abs/2606.19152" target="_blank" rel="noopener noreferrer">arXiv</a>. It passed editorial screening at <strong>Machine Learning: Science and Technology</strong> and is now under external peer review.',
-      zh: '我们的论文 <strong>AdsMind</strong> 现已在 <a href="https://arxiv.org/abs/2606.19152" target="_blank" rel="noopener noreferrer">arXiv</a> 上线。稿件已通过 <strong>Machine Learning: Science and Technology</strong> 编辑初审，现已进入外部同行评审。'
+      en: 'Our paper <strong>AdsMind</strong> is now available on <a href="https://arxiv.org/abs/2606.19152" target="_blank" rel="noopener noreferrer">arXiv</a>. Submitted to <strong>Machine Learning: Science and Technology</strong> (Under Review).',
+      zh: '我们的论文 <strong>AdsMind</strong> 现已在 <a href="https://arxiv.org/abs/2606.19152" target="_blank" rel="noopener noreferrer">arXiv</a> 上线。已投稿至 <strong>Machine Learning: Science and Technology</strong>（审稿中）。'
     }
   },
   {
     date: { en: 'Jun 4, 2026', zh: '2026年6月4日' },
     html: {
-      en: 'Our paper <strong>CatDT</strong> is now available on <a href="https://arxiv.org/abs/2606.05050" target="_blank" rel="noopener noreferrer">arXiv</a>. First-round external peer-review reports have been received from <strong>Nature Communications</strong>. A <strong>major revision</strong> was requested.',
-      zh: '我们的论文 <strong>CatDT</strong> 现已在 <a href="https://arxiv.org/abs/2606.05050" target="_blank" rel="noopener noreferrer">arXiv</a> 上线。已收到 <strong>Nature Communications</strong> 第一轮外部同行评审意见，审稿决定为<strong>大修</strong>。'
+      en: 'Our paper <strong>CatDT</strong> is now available on <a href="https://arxiv.org/abs/2606.05050" target="_blank" rel="noopener noreferrer">arXiv</a>. Submitted to <strong>Nature Communications</strong> (Major Revision Underway).',
+      zh: '我们的论文 <strong>CatDT</strong> 现已在 <a href="https://arxiv.org/abs/2606.05050" target="_blank" rel="noopener noreferrer">arXiv</a> 上线。已投稿至 <strong>Nature Communications</strong>（<strong>大修进行中</strong>）。'
     }
   },
   {
@@ -223,8 +627,8 @@ window.EDUCATION = [
       "zh": "2023年9月 - 至今"
     },
     "title": {
-      "en": "The Hong Kong University of Science and Technology (HKUST), Bachelor of Engineering (BEng) in Computer Science, minor in Chemistry.",
-      "zh": "香港科技大学 (HKUST)，工学士（计算机科学），辅修化学。"
+      "en": "The Hong Kong University of Science and Technology (HKUST), BEng in Computer Science (Minor in Chemistry), Department of Computer Science and Engineering (CSE), School of Engineering (SENG). CGA: 3.999/4.300 (top 2%) | Major CGA (MCGA): 4.094/4.300.",
+      "zh": "香港科技大学 (HKUST)，工学院计算机科学及工程学系，工学士（计算机科学），辅修化学。CGA：3.999/4.300（前2%）｜专业 CGA（MCGA）：4.094/4.300。"
     }
   },
   {
@@ -317,18 +721,18 @@ window.INDUSTRY = [
       "zh": "2024年12月 - 2025年1月"
     },
     "title": {
-      "en": "Unity VR Development Intern, Qingdao Virtual Reality Institute (QVRI) Co., Ltd., Qingdao, Shandong, China.",
+      "en": "U3D VR Developer Intern, Qingdao Virtual Reality Institute Co., Ltd., Qingdao, Shandong, China.",
       "zh": "Unity VR 开发实习生，青岛虚拟现实研究院有限公司，中国山东青岛。"
     }
   },
   {
     "school": "lucent",
     "date": {
-      "en": "Aug - Sep 2024",
-      "zh": "2024年8月-9月"
+      "en": "Aug 2024",
+      "zh": "2024年8月"
     },
     "title": {
-      "en": "Front-End Development Intern, Lucent Qingdao R&D Center, Qingdao, Shandong, China.",
+      "en": "Frontend Developer Intern, Lucent Qingdao R&D Center, Qingdao, Shandong, China.",
       "zh": "前端开发实习生，青岛朗讯科技通讯设备有限公司，中国山东青岛。"
     }
   }
@@ -338,8 +742,8 @@ window.HONORS = {
   "scholarships": [
     {
       "title": {
-        "en": "HKSAR Government Scholarship Fund - Scholarship for Outstanding Performance and Hong Kong, China-APEC Scholarship",
-        "zh": "香港特别行政区政府卓越表现奖学金及中国香港－亚太经合组织奖学金"
+        "en": "HKSAR Government Scholarship Fund – Scholarship for Outstanding Performance (HK$80,000 p.a.) and Hong Kong, China–Asia-Pacific Economic Cooperation Scholarship",
+        "zh": "香港特别行政区政府卓越表现奖学金（每年HK$80,000）及中国香港－亚太经合组织奖学金"
       },
       "items": [
         {
@@ -379,8 +783,8 @@ window.HONORS = {
   "honors": [
     {
       "title": {
-        "en": "HKUST SENG Dean's List",
-        "zh": "香港科技大学工学院院长嘉许名单"
+        "en": "HKUST School of Engineering (SENG) Dean’s List (Awarded for all terms at HKUST)",
+        "zh": "香港科技大学工学院院长嘉许名单（在香港科技大学就读的所有学期均获评）"
       },
       "items": [
         { "date": { "en": "Spring 2026", "zh": "2026年春季学期" } },
@@ -400,21 +804,39 @@ window.HONORS = {
       "items": [
         {
           "date": { "en": "Mar 2026", "zh": "2026年3月" },
-          "text": { "en": "Finalist Award (Team Category)", "zh": "决赛入围奖（团体组）" }
+          "text": {
+            "en": "Finalist Award (Team Category) · Team Leader (Prize: HK$800 per team) [Project: PSC-Copilot]",
+            "zh": "决赛入围奖（团体组） · 队长（奖金：每队HK$800）[项目：PSC-Copilot]"
+          }
         }
       ]
     },
     {
       "title": {
-        "en": "5th National University Students' Data Analysis Popular Science Knowledge Competition Series",
+        "en": "5th National University Students’ Data Analysis Popular Science Knowledge Competition (Theory Track)",
         "zh": "第五届全国大学生数据分析科普竞赛系列活动"
       },
       "items": [
         {
           "date": { "en": "May 2026", "zh": "2026年5月" },
           "text": {
-            "en": "First Prize (Theory Track) · Outstanding Volunteer · Data Analysis Professional Skill Certificate",
+            "en": "First Prize · Outstanding Volunteer · Data Analysis Professional Skill Certificate",
             "zh": "理论赛一等奖 · 优秀志愿者 · 数据分析专业技能证书"
+          }
+        }
+      ]
+    },
+    {
+      "title": {
+        "en": "2026 National University Student Science and Technology Knowledge Competition",
+        "zh": "2026年全国大学生科技知识竞赛"
+      },
+      "items": [
+        {
+          "date": { "en": "May 2026", "zh": "2026年5月" },
+          "text": {
+            "en": "First Prize · Outstanding Publicity Ambassador",
+            "zh": "一等奖 · 优秀宣传大使"
           }
         }
       ]
@@ -444,8 +866,8 @@ window.HONORS = {
 window.ACTIVITIES = {
   "leadership": [
     {
-      "en": "IOP Trusted Reviewer, Machine Learning: Science and Technology.",
-      "zh": "IOP可信赖审稿人，Machine Learning: Science and Technology。"
+      "en": "IOP Trusted Reviewer, Machine Learning: Science and Technology (MLST) & Machine Learning: Engineering (MLENG), 2026.",
+      "zh": "IOP可信赖审稿人，Machine Learning: Science and Technology（MLST）及 Machine Learning: Engineering（MLENG），2026年。"
     },
     {
       "en": "Reviewer, ICML 2026 AI for Science Workshop & NeurIPS 2026 AI for Science Workshop.",
@@ -454,6 +876,10 @@ window.ACTIVITIES = {
     {
       "en": "Co-Founder & Vice President (VP), HKUST AI for Chemistry Club, a student-led academic community under the Department of Chemistry.",
       "zh": "共同创始人兼副主席，香港科技大学人工智能化学社（化学系下属之由学生领导的学术社区）。"
+    },
+    {
+      "en": "Team Leader, Open Scientific Intelligence (OSI) Hackathon [Project: SciExchange], Oct 2026.",
+      "zh": "Open Scientific Intelligence（OSI）黑客松队长，项目：SciExchange，2026年10月。"
     },
     {
       "en": "Student Representative, HKUST SENG Mainland Undergraduate Recruitment Trip for JEE Main Round Interview Mingling Sessions.",
@@ -525,6 +951,19 @@ window.PROJECTS = [
     ]
   },
   {
+    "title": "SciExchange",
+    "desc": {
+      "en": "Open Scientific Intelligence (OSI) Hackathon project. Team Leader, Oct 2026.",
+      "zh": "Open Scientific Intelligence（OSI）黑客松项目，担任队长，2026年10月。"
+    },
+    "links": [
+      {
+        "label": "GitHub",
+        "href": "https://github.com/Nine-Three-Cattery/SciExchange"
+      }
+    ]
+  },
+  {
     "title": "eBPF-LLM NetSentinel",
     "desc": {
       "en": "An intelligent network threat-detection system combining eBPF/XDP enforcement, LLM-driven analysis, and human-in-the-loop (HITL) validation.",
@@ -540,8 +979,8 @@ window.PROJECTS = [
   {
     "title": "PSC-Copilot",
     "desc": {
-      "en": "A generative-AI (GenAI) examiner and practice assistant for Cantonese-speaking Putonghua Shuiping Ceshi (PSC) examinees.",
-      "zh": "一个面向以广东话为母语的普通话水平测试 (PSC) 考生的生成式人工智能 (GenAI) 考官与练习助手。"
+      "en": "A generative-AI (GenAI) examiner and practice assistant for Cantonese-speaking Putonghua Shuiping Ceshi (PSC) examinees. Team Leader. Finalist Award (Team Category), HKUST GenAI Hackathon Competition on a Putonghua Web Tool (Prize: HK$800 per team), Mar 2026.",
+      "zh": "一个面向以广东话为母语的普通话水平测试 (PSC) 考生的生成式人工智能 (GenAI) 考官与练习助手。担任队长，获香港科技大学普通话网络工具生成式人工智能黑客松竞赛决赛入围奖（团体组），奖金每队HK$800，2026年3月。"
     },
     "links": [
       {

@@ -56,7 +56,8 @@ CHROME="/path/to/chrome" PORT=8799 CDP_PORT=9334 node test/smoke.mjs
   `data/content.js`; every paper has an expandable BibTeX disclosure
   (`<details>`, view + copy) plus a "Download all BibTeX"; the topic filter
   narrows the list; per-paper `ScholarlyArticle` JSON-LD is injected; switching
-  language re-renders everything.
+  language re-renders everything. In-preparation manuscripts appear in a separate
+  list and are excluded from publication JSON-LD, BibTeX, and the feed.
 - **Generated `feed.xml`:** `node tools/build-feed.mjs` regenerates the Atom
   feed from `data/content.js`; `--check` (run in CI + the pre-push hook) fails
   if it has drifted.
