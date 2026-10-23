@@ -953,8 +953,8 @@ window.PROJECTS = [
   {
     "title": "SciExchange",
     "desc": {
-      "en": "Open Scientific Intelligence (OSI) Hackathon project. Team Leader, Oct 2026.",
-      "zh": "Open Scientific Intelligence（OSI）黑客松项目，担任队长，2026年10月。"
+      "en": "A prototype platform for discovering, exchanging, and reusing experimental data across laboratories, combining consistency checks for electrocatalysis and battery data, matching by experimental conditions, and signed approval from both lab leads.",
+      "zh": "一个帮助实验室发现、交换和复用实验数据的平台原型，结合电催化与电池数据的一致性检查、实验条件匹配和双方负责人签名审批。"
     },
     "links": [
       {
