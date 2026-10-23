@@ -85,6 +85,9 @@ async function connect() {
 
 try {
   await connect();
+  // Linux headless runners can report no pointer despite accepting mouse input.
+  // This phase exercises the site's desktop keyboard/mouse experience.
+  await send('Emulation.setEmulatedMedia', { features: [{ name: 'pointer', value: 'fine' }, { name: 'hover', value: 'hover' }] });
   await send('Runtime.enable');
   await send('Page.navigate', { url: `http://localhost:${PORT}/index.html` });
   await sleep(6000);
