@@ -1172,6 +1172,7 @@ function handleTerminalCommand(cmdString) {
   <span class="cmd-highlight">bgm</span>        - 显示/隐藏背景音乐播放器
   <span class="cmd-highlight">matrix</span>     - 在终端背景运行代码雨
   <span class="cmd-highlight">hack</span>       - 运行一段有趣的黑客模拟动效
+  <span class="cmd-highlight">destroy</span>    - 用火柴人和武器摧毁当前网页
   <span class="cmd-highlight">clear</span>      - 清空屏幕
   <span class="cmd-highlight">close</span>      - 关闭终端控制台
 ` : `
@@ -1182,6 +1183,7 @@ Available commands:
   <span class="cmd-highlight">bgm</span>        - Toggle the background music player card
   <span class="cmd-highlight">matrix</span>     - Run Matrix code rain in terminal background
   <span class="cmd-highlight">hack</span>       - Run a fun hacker console output
+  <span class="cmd-highlight">destroy</span>    - Destroy this webpage with a stickman and weapons
   <span class="cmd-highlight">clear</span>      - Clear the screen
   <span class="cmd-highlight">close</span>      - Close the console
 `);
@@ -1232,6 +1234,10 @@ Lab: AI4PhysSci Lab (Supervisor: Prof. Lixue Cheng).
         } else {
             responseLine.textContent = isZh ? '未找到音乐播放器卡片。' : 'Music player card not found.';
         }
+    } else if (command === 'destroy') {
+        inputEl.value = '';
+        window.startDestroyGame();
+        return;
     } else if (command === 'matrix') {
         responseLine.textContent = isZh ? '正在启动代码雨... 按 ESC、` 或点击屏幕任意位置可退出。' : 'Starting Matrix digital rain... Press ESC, Backtick (`) or click anywhere to exit.';
         startMatrixRain();

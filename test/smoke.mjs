@@ -159,6 +159,64 @@ try {
   check('collaborator without a photo renders initials fallback', (await q("(function(){var cards=[].slice.call(document.querySelectorAll('#collab-grid .collab-card'));var r=cards.find(function(c){return /Ryo Kuroki/.test(c.textContent);});var a=r&&r.querySelector('.collab-avatar-fallback');return !!a && a.textContent.trim()==='RK';})()")) === true);
   check('CV re-renders on language switch (education follows language)', (await q("(function(){var t=document.getElementById('lang-toggle');var m=function(){var e=document.querySelector('#edu-timeline .timeline-title');return e?e.textContent:'';};var zh=function(s){return /[\\u4e00-\\u9fff]/.test(s);};var s1=m();t.click();var s2=m();t.click();return zh(s1)!==zh(s2);})()")) === true);
 
+  console.log('\nDestroy webpage game (upstream engine on a page copy):');
+  check('game engine is not loaded during ordinary browsing', (await q("!document.getElementById('destroy-game-frame') && !performance.getEntriesByType('resource').some(function(r){return r.name.includes('/destroy/game.js');})")) === true);
+  await q("window.__originalHero=document.querySelector('.hero h1');window.__originalHeroText=window.__originalHero.textContent;window.startDestroyGame();");
+  async function waitForGame() {
+    for (let i = 0; i < 60; i++) {
+      if (await q("!!document.getElementById('destroy-game-frame')?.contentWindow.__daw?.S?.ready")) return true;
+      await sleep(250);
+    }
+    return false;
+  }
+  if (!await waitForGame()) throw new Error('Destroy game did not load the rendered homepage snapshot');
+  check('game copy includes dynamically rendered manuscripts and projects', (await q("(function(){var f=document.getElementById('destroy-game-frame');var d=f.contentDocument.getElementById('site').contentDocument;return f.contentWindow.__daw.S.mode==='sp' && d.body.textContent.includes('ChemTriage') && d.body.textContent.includes('SciExchange') && d.querySelectorAll('script').length===0;})()")) === true);
+  await q("document.getElementById('destroy-game-frame').focus()");
+  const beforeRun = await q("document.getElementById('destroy-game-frame').contentWindow.__daw.S.me.x");
+  await send('Input.dispatchKeyEvent', { type: 'keyDown', key: 'd', code: 'KeyD', windowsVirtualKeyCode: 68 });
+  await sleep(350);
+  await send('Input.dispatchKeyEvent', { type: 'keyUp', key: 'd', code: 'KeyD', windowsVirtualKeyCode: 68 });
+  check('character moves with the keyboard', (await q("document.getElementById('destroy-game-frame').contentWindow.__daw.S.me.x")) > beforeRun + 10);
+  await send('Input.dispatchKeyEvent', { type: 'keyDown', key: '5', code: 'Digit5', windowsVirtualKeyCode: 53 });
+  await send('Input.dispatchKeyEvent', { type: 'keyUp', key: '5', code: 'Digit5', windowsVirtualKeyCode: 53 });
+  check('number 5 selects the upstream railgun', (await q("document.getElementById('destroy-game-frame').contentWindow.__daw.S.me.weapon")) === 4);
+  const aim = await q("(function(){var s=document.getElementById('destroy-game-frame').contentWindow.__daw.S;var b=s.blocks.find(function(b){return b.alive && b.kind==='word' && b.x>s.cam.x+100 && b.x<s.cam.x+s.VW-200 && b.y>s.cam.y+120 && b.y<s.cam.y+s.VH-150 && Math.hypot(b.x-s.me.x,b.y-s.me.y)>100;});return b?{x:(b.x+b.w/2-s.cam.x)*s.scale,y:(b.y+b.h/2-s.cam.y)*s.scale}:null;})()");
+  if (!aim) throw new Error('No visible text target in the homepage game');
+  await send('Input.dispatchMouseEvent', { type: 'mouseMoved', x: aim.x, y: aim.y });
+  await sleep(100);
+  await send('Input.dispatchMouseEvent', { type: 'mousePressed', x: aim.x, y: aim.y, button: 'left', clickCount: 1 });
+  await sleep(160);
+  await send('Input.dispatchMouseEvent', { type: 'mouseReleased', x: aim.x, y: aim.y, button: 'left', clickCount: 1 });
+  check('railgun firing destroys real page-copy elements', (await q("(function(){var s=document.getElementById('destroy-game-frame').contentWindow.__daw.S;return s.stats.shots>0 && s.destroyedCount>0;})()")) === true);
+  await send('Input.dispatchMouseEvent', { type: 'mousePressed', x: aim.x, y: aim.y, button: 'right', clickCount: 1 });
+  await send('Input.dispatchMouseEvent', { type: 'mouseReleased', x: aim.x, y: aim.y, button: 'right', clickCount: 1 });
+  check('right click throws the upstream grenade', (await q("document.getElementById('destroy-game-frame').contentWindow.__daw.S.projectiles.some(function(p){return p.t==='grenade';})")) === true);
+  // The upstream engine caps simulation dt; slow software-rendered frames
+  // can take longer than the grenade's 1.7 seconds of simulation time.
+  for (let i = 0; i < 60; i++) {
+    if (await q("!document.getElementById('destroy-game-frame').contentWindow.__daw.S.projectiles.some(function(p){return p.t==='grenade';})")) break;
+    await sleep(100);
+  }
+  check('grenade completes its fuse and explosion', (await q("!document.getElementById('destroy-game-frame').contentWindow.__daw.S.projectiles.some(function(p){return p.t==='grenade';})")) === true);
+  await q("document.getElementById('destroy-game-exit').click()");
+  check('exit removes the game and preserves original DOM and controls', (await q("!document.getElementById('destroy-game-host') && document.querySelector('.hero h1')===window.__originalHero && window.__originalHero.textContent===window.__originalHeroText && document.body.style.overflow!=='hidden' && document.documentElement.style.overflow!=='hidden'")) === true);
+  await q("handleTerminalCommand('destroy')");
+  if (!await waitForGame()) throw new Error('Destroy terminal command did not start another game');
+  await q("document.getElementById('destroy-game-frame').focus()");
+  await send('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Escape', code: 'Escape', windowsVirtualKeyCode: 27 });
+  await send('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Escape', code: 'Escape', windowsVirtualKeyCode: 27 });
+  check('Escape pauses the game', (await q("document.getElementById('destroy-game-frame').contentWindow.__daw.S.paused")) === true);
+  check('pause menu focuses Resume', (await q("document.getElementById('destroy-game-frame').contentDocument.activeElement.id")) === 'resumeBtn');
+  await send('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Tab', code: 'Tab', windowsVirtualKeyCode: 9 });
+  await send('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Tab', code: 'Tab', windowsVirtualKeyCode: 9 });
+  check('Tab can navigate the pause menu', (await q("document.getElementById('destroy-game-frame').contentDocument.activeElement.id")) === 'reloadBtn');
+  await send('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Tab', code: 'Tab', windowsVirtualKeyCode: 9 });
+  await send('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Tab', code: 'Tab', windowsVirtualKeyCode: 9 });
+  await send('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13 });
+  await send('Input.dispatchKeyEvent', { type: 'char', text: '\r', unmodifiedText: '\r', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13 });
+  await send('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13 });
+  check('pause-menu exit also restores the homepage', (await q("!document.getElementById('destroy-game-host') && document.querySelector('.hero h1')===window.__originalHero")) === true);
+
   console.log('\nEffects (lite/full) toggle:');
   await q("localStorage.setItem('effects-mode','lite')"); await send('Page.reload'); await sleep(5000);
   check('lite mode hides the particle background', (await q("getComputedStyle(document.getElementById('bg-canvas')).display")) === 'none');
@@ -188,6 +246,8 @@ try {
   check('mascot is hidden at mobile width', (await q("(function(){var w=document.getElementById('waifu');return !w||getComputedStyle(w).display==='none';})()")) === true);
   check('grouped honors stay within the mobile viewport', (await q("(function(){var h=document.getElementById('honors');return h.scrollWidth<=h.clientWidth+1 && [].every.call(h.querySelectorAll('.honor-group, .honor-item, .honor-group-title'),function(e){return e.scrollWidth<=e.clientWidth+1;});})()")) === true);
   check('long manuscript titles and author lists stay within the mobile viewport', (await q("[].every.call(document.querySelectorAll('#manuscript-list, .manuscript-item, .manuscript-item .item-title, .manuscript-item .authors'),function(e){return e.scrollWidth<=e.clientWidth+1;})")) === true);
+  await q("document.getElementById('destroy-page-button').click()");
+  check('mobile entry explains desktop controls without loading the game', (await q("!document.getElementById('destroy-game-frame') && !document.getElementById('destroy-page-status').hidden && /电脑|computer/.test(document.getElementById('destroy-page-status').textContent)")) === true);
 
   // Exercise the REAL citation path (main.js fetches data/citations.json) by
   // stubbing fetch for that one URL — no test-only hook in production code.

@@ -83,3 +83,8 @@ CHROME="/path/to/chrome" PORT=8799 CDP_PORT=9334 node test/smoke.mjs
 - **Print (CV) stylesheet:** under print media the mascot + UI chrome are
   hidden, cards are flattened (no shadow/blur), and collapsed news is revealed.
 - **Responsive:** the mascot is hidden at mobile widths.
+
+The Destroy webpage checks launch the existing game engine, move its character,
+switch to the railgun, fire at page-copy elements, throw a grenade, and exercise
+both exit routes. They verify that the original DOM survives and that narrow
+screens show a desktop-controls hint without loading the game.

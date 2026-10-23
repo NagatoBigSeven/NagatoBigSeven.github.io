@@ -40,7 +40,7 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;650;720;760;800&display=swap">
 
   <link rel="preload" fetchpriority="high" as="image" href="assets/profile.webp" type="image/webp">
-  <link rel="stylesheet" href="index.css?v=20261024-1">
+  <link rel="stylesheet" href="index.css?v=20261024-4">
   <script>
     // Inline script to prevent screen flash by reading stored theme preference before initial paint
     (function () {
@@ -388,6 +388,10 @@
         src="https://m.h4ck.org.cn/@nagato-home?theme=yousa-ling&amp;padding=7&amp;scale=0.75&amp;align=center&amp;pixelated=1&amp;darkmode=auto"
         alt="" decoding="async" referrerpolicy="no-referrer" onerror="this.hidden = true">
     </span>
+    <div class="destroy-page-tools">
+      <button id="destroy-page-button" class="destroy-page-button" type="button" data-i18n="footer.destroy">Destroy this webpage</button>
+      <span id="destroy-page-status" class="destroy-page-status" role="status" hidden></span>
+    </div>
   </footer>
 
   <div class="bibtex-toast" id="bibtex-toast" role="status" aria-live="polite" aria-atomic="true" hidden>
@@ -512,7 +516,8 @@
   <!-- Overlay Canvas for Easter Eggs -->
   <canvas id="easter-egg-canvas" style="position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:9999; display:none;"></canvas>
   <script type="text/javascript" src="data/content.js?v=20261024-3"></script>
-  <script type="text/javascript" src="assets/main.js?v=20261024-1"></script>
+  <script type="text/javascript" src="assets/destroy-page.js?v=20261024-4"></script>
+  <script type="text/javascript" src="assets/main.js?v=20261024-4"></script>
 
   <!-- Privacy-friendly analytics (GoatCounter): no cookies, no personal data.
        Active — pageviews go to https://nagatobigseven.goatcounter.com (dashboard).

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Destroy this webpage</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="game" class="screen" tabindex="-1">
+    <div id="stage">
+      <iframe id="site" title="Playable copy of the webpage" sandbox="allow-same-origin" referrerpolicy="no-referrer" scrolling="no"></iframe>
+      <canvas id="fx"></canvas>
+    </div>
+
+    <div id="hud">
+      <div class="hud-tl">
+        <div class="bar"><div class="label">HP</div><div class="meter"><i id="hpFill"></i></div><div id="hpTxt" class="val">100%</div></div>
+        <div id="killsTxt" class="kills"></div>
+      </div>
+      <div class="hud-tc">
+        <div class="label" data-zh="网页破坏进度">WEBSITE DESTROYED</div>
+        <div class="meter wide"><i id="destFill"></i></div>
+        <div id="destTxt" class="val">0%</div>
+      </div>
+      <div id="feed" class="hud-tr"></div>
+      <div id="weapons" class="hud-bc"></div>
+      <div id="center" class="center-msg"></div>
+      <div id="hints" class="hints">
+        <div class="hints-title" data-zh="操作方式">CONTROLS</div>
+        <div><kbd>A</kbd><kbd>D</kbd><span data-zh="左右移动">Move</span></div>
+        <div><kbd>SPACE</kbd><span data-zh="跳跃 · 再按一次空翻">Jump · again to flip</span></div>
+        <div><kbd>SPACE</kbd><em data-zh="长按">hold</em><span data-zh="喷气背包">Jetpack</span></div>
+        <div><kbd>S</kbd><span data-zh="向下穿过平台">Drop through platforms</span></div>
+        <div><kbd data-zh="左键">LMB</kbd><span data-zh="开火">Fire</span><kbd data-zh="右键">RMB</kbd><span data-zh="手雷">Grenade</span></div>
+        <div><kbd>1–7</kbd><kbd data-zh="滚轮">WHEEL</kbd><span data-zh="切换武器">Switch weapon</span></div>
+        <div><kbd>TAB</kbd><span data-zh="统计">Stats</span><kbd>ESC</kbd><span data-zh="暂停">Pause</span></div>
+      </div>
+    </div>
+
+    <button class="btn small pause-action" id="pauseBtn" data-zh="暂停 · Esc">Pause · Esc</button>
+
+    <div id="score" class="overlay hidden"><div class="box"><h2 id="scoreTitle">STATS</h2><table id="scoreTable"></table></div></div>
+
+    <div id="pause" class="overlay hidden" role="dialog" aria-labelledby="pauseTitle">
+      <div class="box">
+        <h2 id="pauseTitle" data-zh="已暂停">PAUSED</h2>
+        <button class="btn" id="resumeBtn" data-zh="继续">Resume</button>
+        <button class="btn" id="reloadBtn" data-zh="重建网页">Rebuild webpage</button>
+        <button class="btn" id="quitBtn" data-zh="返回网页">Back to webpage</button>
+        <p class="game-credit"><a href="https://github.com/ychisbest/destroy-any-website" target="_blank" rel="noopener">Destroy Any Website</a> · ychisbest · MIT<br><span data-zh="开源复刻版 · 原作：Hugo Duprez / Sprite Fusion">Open-source remake · Original by Hugo Duprez / Sprite Fusion</span></p>
+      </div>
+    </div>
+
+    <div id="loading" class="overlay">
+      <div class="box"><h2 data-zh="正在准备关卡">PREPARING THE LEVEL</h2><p id="loadTxt" data-zh="正在准备网页……">Preparing the page…</p><div class="spinner"></div></div>
+    </div>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>

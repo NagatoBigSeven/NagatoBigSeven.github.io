@@ -122,7 +122,7 @@ function hideWaifu() {
   if (waifuEl) waifuEl.style.display = 'none';
 }
 
-var suffix = window.location.protocol === 'file:' ? '' : '?v=20260625-1';
+var suffix = window.location.protocol === 'file:' ? '' : '?v=20261024-4';
 
 if (window.innerWidth > 768) {
   // CSS must be applied before Live2D measures and paints the canvas.
@@ -1311,7 +1311,7 @@ if (window.innerWidth > 768) {
   }
 
   // Load i18n data
-  fetch('i18n.json?v=20261024-1')
+  fetch('i18n.json?v=20261024-4')
     .then(function (r) { return r.json(); })
     .then(function (data) {
       i18nData = data;

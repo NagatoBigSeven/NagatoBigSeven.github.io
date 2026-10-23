@@ -22,8 +22,8 @@ import { dirname, extname, join, normalize } from 'node:path';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const wantExternal = process.argv.includes('--external');
 
-const HTML_FILES = ['index.html', '404.html'];
-const CSS_FILES = ['index.css'];
+const HTML_FILES = ['index.html', '404.html', 'assets/destroy/index.html'];
+const CSS_FILES = ['index.css', 'assets/destroy/style.css'];
 
 const local = new Map();   // resolved path -> Set(source files)
 const external = new Map(); // url -> Set(source files)
@@ -39,10 +39,11 @@ function addRef(ref, fromFile) {
     (external.get(u) || external.set(u, new Set()).get(u)).add(fromFile);
     return;
   }
-  // local: drop query/hash, resolve relative to repo root
+  // HTML/CSS paths are relative to their file; content data uses site-root paths.
   const clean = ref.split('?')[0].split('#')[0];
   if (!clean) return;
-  const p = normalize(join(ROOT, clean));
+  const base = /\.(html|css)$/.test(fromFile) ? dirname(join(ROOT, fromFile)) : ROOT;
+  const p = normalize(join(base, clean));
   (local.get(p) || local.set(p, new Set()).get(p)).add(fromFile + '  →  ' + ref);
 }
 
