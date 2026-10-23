@@ -1311,7 +1311,7 @@ if (window.innerWidth > 768) {
   }
 
   // Load i18n data
-  fetch('i18n.json?v=20261024-4')
+  fetch('i18n.json?v=20261024-6')
     .then(function (r) { return r.json(); })
     .then(function (data) {
       i18nData = data;

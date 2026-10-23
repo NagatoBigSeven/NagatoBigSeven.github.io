@@ -56,7 +56,11 @@
     "languages.note": "Working languages and study interests.",
     "meta.description": "Academic homepage of Zongmin Zhang, an HKUST computer science undergraduate and AI for Science/Chemistry researcher.",
     "bibtex.downloadAll": "Download all BibTeX",
-    "a11y.skip": "Skip to main content"
+    "a11y.skip": "Skip to main content",
+    "game.kicker": "Just for fun",
+    "game.description": "Control a stickman, switch between 7 weapons, and blast the text and images apart.",
+    "game.play": "Start game",
+    "game.hint": "Keyboard & mouse · Exit anytime to restore"
   },
   "zh": {
     "nav.papers": "论文",
@@ -115,6 +119,10 @@
     "languages.note": "工作语言与学习兴趣。",
     "meta.description": "张宗民的个人学术主页，他是香港科技大学计算机科学专业的本科生，从事科学智能 (AI for Science) 及化学智能 (AI for Chemistry) 相关研究。",
     "bibtex.downloadAll": "下载全部 BibTeX",
-    "a11y.skip": "跳到主要内容"
+    "a11y.skip": "跳到主要内容",
+    "game.kicker": "互动小游戏",
+    "game.description": "操控火柴人，切换 7 种武器，把文字和图片打成碎片。",
+    "game.play": "开始拆网页",
+    "game.hint": "电脑键鼠 · 随时退出恢复"
   }
 }

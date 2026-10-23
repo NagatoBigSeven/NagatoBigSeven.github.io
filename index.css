@@ -1265,28 +1265,109 @@ details[open] summary {
 }
 
 .destroy-page-tools {
-  padding: 0 16px;
+  display: grid;
+  grid-template-columns: minmax(180px, 28%) minmax(0, 1fr);
+  align-items: center;
+  gap: 26px;
+  margin-top: 28px;
+  padding: 24px;
+  border: 1px solid var(--link-border);
+  border-radius: var(--radius);
+  background: linear-gradient(120deg, var(--link-bg), var(--card));
+  box-shadow: var(--shadow);
+}
+
+.destroy-page-preview {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.destroy-page-kicker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  color: var(--link);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.destroy-page-copy h2 {
+  margin: 0 0 9px;
+  padding: 0;
+  border: 0;
+  font-size: 23px;
+}
+
+.destroy-page-copy h2::after {
+  display: none;
+}
+
+.destroy-page-description {
+  color: var(--subtle);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.destroy-page-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  margin-top: 16px;
 }
 
 .destroy-page-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   border: 0;
-  padding: 4px 8px;
-  background: transparent;
-  color: var(--muted);
-  font: inherit;
+  border-radius: 999px;
+  padding: 11px 20px;
+  background: #0066cc;
+  color: #fff;
+  font: 600 14px Inter, sans-serif;
   cursor: pointer;
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  transition: background .2s ease;
 }
 
-.destroy-page-button:hover,
+.destroy-page-button:hover {
+  background: #0055b3;
+}
+
 .destroy-page-button:focus-visible {
-  color: var(--link);
+  outline: 3px solid var(--link);
+  outline-offset: 4px;
+}
+
+.destroy-page-hint {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
 }
 
 .destroy-page-status:not([hidden]) {
   display: block;
-  margin-top: 6px;
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+@media (max-width: 700px) {
+  .destroy-page-tools {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    gap: 18px;
+  }
+
+  .destroy-page-preview {
+    max-height: 180px;
+    object-fit: cover;
+  }
 }
 
 #destroy-game-host {

@@ -4,8 +4,8 @@ Personal academic homepage for Zongmin Zhang, deployed with GitHub Pages at `htt
 
 The site is a single-file static homepage adapted from [Xin-Jiaqi/minimal-academic-homepage](https://github.com/Xin-Jiaqi/minimal-academic-homepage).
 
-The footer's **Destroy this webpage** button (or the terminal command `destroy`)
-opens a desktop-only game adapted from
+The **Destroy this webpage** card above the footer (or the terminal command
+`destroy`) opens a desktop-only game adapted from
 [ychisbest/destroy-any-website](https://github.com/ychisbest/destroy-any-website).
 Use A/D to move, Space to jump or hold for the jetpack, the mouse to aim,
 left click to fire, right click for grenades, and 1–7 or the wheel to change
