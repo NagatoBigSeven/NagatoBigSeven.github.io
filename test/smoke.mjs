@@ -163,10 +163,14 @@ try {
   check('game engine is not loaded during ordinary browsing', (await q("!document.getElementById('destroy-game-frame') && !performance.getEntriesByType('resource').some(function(r){return r.name.includes('/destroy/game.js');})")) === true);
   await q("window.__originalHero=document.querySelector('.hero h1');window.__originalHeroText=window.__originalHero.textContent;window.startDestroyGame();");
   async function waitForGame() {
-    for (let i = 0; i < 60; i++) {
+    const startup = await q("({width:innerWidth,fine:matchMedia('(pointer: fine)').matches,frame:!!document.getElementById('destroy-game-frame'),hint:document.getElementById('destroy-page-status').textContent})");
+    if (!startup.frame) throw new Error('Destroy game entry: '+JSON.stringify(startup));
+    // Upstream allows 20s for the frame load, then 2.5s for fonts and 4s for images.
+    for (let i = 0; i < 140; i++) {
       if (await q("!!document.getElementById('destroy-game-frame')?.contentWindow.__daw?.S?.ready")) return true;
       await sleep(250);
     }
+    console.error('Game loading state:', await q("(function(){var f=document.getElementById('destroy-game-frame');return {frameReady:f?.contentDocument?.readyState,loading:f?.contentDocument?.getElementById('loadTxt')?.textContent};})()"), exceptions);
     return false;
   }
   if (!await waitForGame()) throw new Error('Destroy game did not load the rendered homepage snapshot');
