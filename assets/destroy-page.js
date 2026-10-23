@@ -48,7 +48,7 @@
     if (activeElement && activeElement.blur) activeElement.blur();
 
     var isZh = language() === 'zh';
-    if (window.innerWidth < 760 || !window.matchMedia('(pointer: fine)').matches) {
+    if (window.innerWidth < 760 || window.matchMedia('(pointer: coarse)').matches) {
       status.textContent = isZh
         ? '请在电脑上使用键盘和鼠标游玩'
         : 'Please play on a computer with a keyboard and mouse.';
