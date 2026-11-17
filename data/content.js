@@ -59,7 +59,7 @@ window.PUBLICATIONS = [
   {
     id: 'catdt',
     date: '2026-06-04',
-    updated: '2026-10-24',
+    updated: '2026-11-17',
     year: 2026,
     type: 'preprint',
     cover: { text: 'CatDT' },
@@ -74,8 +74,8 @@ window.PUBLICATIONS = [
     ],
     authorsHtml: 'Zhilong Song, <span class="me">Zongmin Zhang</span>, and Lixue Cheng',
     venue: {
-      en: 'arXiv preprint arXiv:2606.05050, 2026. Submitted to Nature Communications (Major Revision Underway).',
-      zh: 'arXiv 预印本 arXiv:2606.05050, 2026。已投稿至 Nature Communications（大修进行中）。'
+      en: 'arXiv preprint arXiv:2606.05050, 2026. Resubmitted to Nature Communications after major revision.',
+      zh: 'arXiv 预印本 arXiv:2606.05050, 2026。完成大修后已返投 Nature Communications。'
     },
     links: [{ label: 'arXiv', href: 'https://arxiv.org/abs/2606.05050' }],
     tags: ['heterogeneousCatalysis', 'digitalTwin', 'multiAgent'],
@@ -527,8 +527,8 @@ window.NEWS = [
   {
     date: { en: 'Jun 4, 2026', zh: '2026年6月4日' },
     html: {
-      en: 'Our paper <strong>CatDT</strong> is now available on <a href="https://arxiv.org/abs/2606.05050" target="_blank" rel="noopener noreferrer">arXiv</a>. Submitted to <strong>Nature Communications</strong> (Major Revision Underway).',
-      zh: '我们的论文 <strong>CatDT</strong> 现已在 <a href="https://arxiv.org/abs/2606.05050" target="_blank" rel="noopener noreferrer">arXiv</a> 上线。已投稿至 <strong>Nature Communications</strong>（<strong>大修进行中</strong>）。'
+      en: 'Our paper <strong>CatDT</strong> is now available on <a href="https://arxiv.org/abs/2606.05050" target="_blank" rel="noopener noreferrer">arXiv</a>.',
+      zh: '我们的论文 <strong>CatDT</strong> 现已在 <a href="https://arxiv.org/abs/2606.05050" target="_blank" rel="noopener noreferrer">arXiv</a> 上线。'
     }
   },
   {
@@ -783,11 +783,10 @@ window.HONORS = {
   "honors": [
     {
       "title": {
-        "en": "HKUST School of Engineering (SENG) Dean’s List (Awarded for all terms at HKUST)",
-        "zh": "香港科技大学工学院院长嘉许名单（在香港科技大学就读的所有学期均获评）"
+        "en": "HKUST School of Engineering (SENG) Dean’s List (four regular terms, Fall 2023 to Spring 2025)",
+        "zh": "香港科技大学工学院院长嘉许名单（2023年秋季至2025年春季，共四个常规学期）"
       },
       "items": [
-        { "date": { "en": "Spring 2026", "zh": "2026年春季学期" } },
         { "date": { "en": "Spring 2025", "zh": "2025年春季学期" } },
         { "date": { "en": "Fall 2024", "zh": "2024年秋季学期" } },
         { "date": { "en": "Spring 2024", "zh": "2024年春季学期" } },
