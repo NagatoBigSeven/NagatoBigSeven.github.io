@@ -28,7 +28,7 @@ window.PUBLICATIONS = [
   {
     id: 'adsmind',
     date: '2026-06-18',
-    updated: '2026-10-24',
+    updated: '2026-11-20',
     year: 2026,
     type: 'preprint',
     cover: { img: 'assets/adsmind-logo.webp', alt: 'AdsMind logo' },
@@ -49,8 +49,8 @@ window.PUBLICATIONS = [
     ],
     authorsHtml: '<span class="me">Zongmin Zhang</span>, Yuyang Lou, Bowen Zhang, Junwu Chen, Ryo Kuroki, Xuan Vu Nguyen, Edvin Fako, Lixue Cheng, and Philippe Schwaller',
     venue: {
-      en: 'arXiv preprint arXiv:2606.19152, 2026. Submitted to Machine Learning: Science and Technology (Under Review).',
-      zh: 'arXiv 预印本 arXiv:2606.19152, 2026。已投稿至 Machine Learning: Science and Technology（审稿中）。'
+      en: 'arXiv preprint arXiv:2606.19152, 2026. Submitted to Machine Learning: Science and Technology (Moderate Revision).',
+      zh: 'arXiv 预印本 arXiv:2606.19152, 2026。已投稿至 Machine Learning: Science and Technology（中修）。'
     },
     links: [{ label: 'arXiv', href: 'https://arxiv.org/abs/2606.19152' }],
     tags: ['adsorption', 'multiAgent', 'heterogeneousCatalysis'],
@@ -627,8 +627,8 @@ window.EDUCATION = [
       "zh": "2023年9月 - 至今"
     },
     "title": {
-      "en": "The Hong Kong University of Science and Technology (HKUST), BEng in Computer Science (Minor in Chemistry), Department of Computer Science and Engineering (CSE), School of Engineering (SENG). CGA: 3.999/4.300 (top 2%) | Major CGA (MCGA): 4.094/4.300.",
-      "zh": "香港科技大学 (HKUST)，工学院计算机科学及工程学系，工学士（计算机科学），辅修化学。CGA：3.999/4.300（前2%）｜专业 CGA（MCGA）：4.094/4.300。"
+      "en": "The Hong Kong University of Science and Technology (HKUST), BEng in Computer Science (Minor in Chemistry), Department of Computer Science and Engineering (CSE), School of Engineering (SENG). CGA: 3.999/4.300 (top 2%) | Major CGA (MCGA): 4.028/4.300.",
+      "zh": "香港科技大学 (HKUST)，工学院计算机科学及工程学系，工学士（计算机科学），辅修化学。CGA：3.999/4.300（前2%）｜专业 CGA（MCGA）：4.028/4.300。"
     }
   },
   {
@@ -676,6 +676,17 @@ window.RESEARCH = [
     "title": {
       "en": "Undergraduate Research Assistant (UGRA), AI for Physical Sciences (AI4PhysSci) Lab, HKUST. Supervisor: Prof. Lixue Cheng.",
       "zh": "本科生研究助理 (UGRA)，香港科技大学 (HKUST) 物质科学人工智能实验室 (AI4PhysSci Lab)。导师：程立雪教授。"
+    }
+  },
+  {
+    "school": "hkust",
+    "date": {
+      "en": "Sep 2026 - Present",
+      "zh": "2026年9月 - 至今"
+    },
+    "title": {
+      "en": "HKUST UROP project: A Multi-Agent Adversarial Framework for Safety Alignment in Chemical Synthesis (ChemTriage), funded by a UROP Support Grant (HK$24,375). Supervisor: Prof. Lixue Cheng.",
+      "zh": "香港科技大学本科生研究计划 (UROP) 项目：面向化学合成安全对齐的多智能体对抗框架 (ChemTriage)，获 UROP Support Grant 资助（HK$24,375）。导师：程立雪教授。"
     }
   },
   {
@@ -757,6 +768,21 @@ window.HONORS = {
         {
           "date": { "en": "AY 2024/25", "zh": "2024-2025学年" },
           "text": { "en": "Awarded for the first time.", "zh": "首次获得。" }
+        }
+      ]
+    },
+    {
+      "title": {
+        "en": "HKUST UROP Support Grant (HK$24,375)",
+        "zh": "香港科技大学 UROP Support Grant（HK$24,375）"
+      },
+      "items": [
+        {
+          "date": { "en": "AY 2026/27", "zh": "2026-2027学年" },
+          "text": {
+            "en": "Joint application with Prof. Lixue Cheng for “A Multi-Agent Adversarial Framework for Safety Alignment in Chemical Synthesis” (ChemTriage).",
+            "zh": "与程立雪教授联合申请，资助项目“A Multi-Agent Adversarial Framework for Safety Alignment in Chemical Synthesis”（ChemTriage）。"
+          }
         }
       ]
     },
