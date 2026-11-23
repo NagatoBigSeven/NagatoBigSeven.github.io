@@ -497,6 +497,20 @@ window.MANUSCRIPTS = [
 window.NEWS_FEATURED_COUNT = 4;
 window.NEWS = [
   {
+    date: { en: 'Nov 20, 2026', zh: '2026年11月20日' },
+    html: {
+      en: 'Awarded the <strong>Bronze Award</strong> in the <strong>2026 Taishan Scholarship</strong> (Tai Shan Student Foundation).',
+      zh: '荣获<strong>2026年度「泰山学子奖学金」铜奖</strong>（泰山学子基金）。'
+    }
+  },
+  {
+    date: { en: 'Nov 20, 2026', zh: '2026年11月20日' },
+    html: {
+      en: 'Our paper <strong>AdsMind</strong> (<a href="https://arxiv.org/abs/2606.19152" target="_blank" rel="noopener noreferrer">arXiv</a>) received a <strong>Moderate Revision</strong> decision from <strong>Machine Learning: Science and Technology</strong>.',
+      zh: '我们的论文 <strong>AdsMind</strong>（<a href="https://arxiv.org/abs/2606.19152" target="_blank" rel="noopener noreferrer">arXiv</a>）收到 <strong>Machine Learning: Science and Technology</strong> 编辑部的中修决定。'
+    }
+  },
+  {
     date: { en: 'Oct 2026', zh: '2026年10月' },
     html: {
       en: 'Team Leader, <strong>Open Scientific Intelligence (OSI) Hackathon</strong> [Project: <a href="https://github.com/Nine-Three-Cattery/SciExchange" target="_blank" rel="noopener noreferrer">SciExchange</a>].',
@@ -520,8 +534,8 @@ window.NEWS = [
   {
     date: { en: 'Jun 18, 2026', zh: '2026年6月18日' },
     html: {
-      en: 'Our paper <strong>AdsMind</strong> is now available on <a href="https://arxiv.org/abs/2606.19152" target="_blank" rel="noopener noreferrer">arXiv</a>. Submitted to <strong>Machine Learning: Science and Technology</strong> (Under Review).',
-      zh: '我们的论文 <strong>AdsMind</strong> 现已在 <a href="https://arxiv.org/abs/2606.19152" target="_blank" rel="noopener noreferrer">arXiv</a> 上线。已投稿至 <strong>Machine Learning: Science and Technology</strong>（审稿中）。'
+      en: 'Our paper <strong>AdsMind</strong> is now available on <a href="https://arxiv.org/abs/2606.19152" target="_blank" rel="noopener noreferrer">arXiv</a>.',
+      zh: '我们的论文 <strong>AdsMind</strong> 现已在 <a href="https://arxiv.org/abs/2606.19152" target="_blank" rel="noopener noreferrer">arXiv</a> 上线。'
     }
   },
   {
@@ -782,6 +796,21 @@ window.HONORS = {
           "text": {
             "en": "Joint application with Prof. Lixue Cheng for “A Multi-Agent Adversarial Framework for Safety Alignment in Chemical Synthesis” (ChemTriage).",
             "zh": "与程立雪教授联合申请，资助项目“A Multi-Agent Adversarial Framework for Safety Alignment in Chemical Synthesis”（ChemTriage）。"
+          }
+        }
+      ]
+    },
+    {
+      "title": {
+        "en": "2026 Taishan Scholarship (Tai Shan Student Foundation)",
+        "zh": "2026年度「泰山学子奖学金」（泰山学子基金）"
+      },
+      "items": [
+        {
+          "date": { "en": "Nov 2026", "zh": "2026年11月" },
+          "text": {
+            "en": "Bronze Award",
+            "zh": "铜奖"
           }
         }
       ]
