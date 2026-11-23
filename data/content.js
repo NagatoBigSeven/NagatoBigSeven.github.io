@@ -499,7 +499,7 @@ window.NEWS = [
   {
     date: { en: 'Nov 20, 2026', zh: '2026年11月20日' },
     html: {
-      en: 'Awarded the <strong>Bronze Award</strong> in the <strong>2026 Taishan Scholarship</strong> (Tai Shan Student Foundation).',
+      en: 'Awarded the <strong>Bronze Award</strong> in the <strong>2026 Tai Shan Student Scholarship</strong> (Tai Shan Student Foundation).',
       zh: '荣获<strong>2026年度「泰山学子奖学金」铜奖</strong>（泰山学子基金）。'
     }
   },
@@ -787,6 +787,25 @@ window.HONORS = {
     },
     {
       "title": {
+        "en": "HKUST Study Abroad Funding Support (HK$10,000)",
+        "zh": "香港科技大学海外学习资助（HK$10,000）"
+      },
+      "items": [
+        {
+          "date": { "en": "Fall 2025", "zh": "2025年秋季" },
+          "text": { "en": "HKUST Study Abroad Grant", "zh": "香港科技大学海外学习补助金" }
+        },
+        {
+          "date": { "en": "AY 2025/26", "zh": "2025-2026学年" },
+          "text": {
+            "en": "HKSAR Government Scholarship Fund - Reaching Out Award (ROA)",
+            "zh": "香港特别行政区政府外展体验奖（ROA）"
+          }
+        }
+      ]
+    },
+    {
+      "title": {
         "en": "HKUST UROP Support Grant (HK$24,375)",
         "zh": "香港科技大学 UROP Support Grant（HK$24,375）"
       },
@@ -802,7 +821,7 @@ window.HONORS = {
     },
     {
       "title": {
-        "en": "2026 Taishan Scholarship (Tai Shan Student Foundation)",
+        "en": "2026 Tai Shan Student Scholarship (Tai Shan Student Foundation)",
         "zh": "2026年度「泰山学子奖学金」（泰山学子基金）"
       },
       "items": [
@@ -811,25 +830,6 @@ window.HONORS = {
           "text": {
             "en": "Bronze Award",
             "zh": "铜奖"
-          }
-        }
-      ]
-    },
-    {
-      "title": {
-        "en": "HKUST Study Abroad Funding Support (HK$10,000)",
-        "zh": "香港科技大学海外学习资助（HK$10,000）"
-      },
-      "items": [
-        {
-          "date": { "en": "Fall 2025", "zh": "2025年秋季" },
-          "text": { "en": "HKUST Study Abroad Grant", "zh": "香港科技大学海外学习补助金" }
-        },
-        {
-          "date": { "en": "AY 2025/26", "zh": "2025-2026学年" },
-          "text": {
-            "en": "HKSAR Government Scholarship Fund - Reaching Out Award (ROA)",
-            "zh": "香港特别行政区政府外展体验奖（ROA）"
           }
         }
       ]
